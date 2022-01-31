@@ -1,0 +1,36 @@
+$bg: #ccc;
+$size_h1: 42px;
+$size_text: 32px;
+$size_desc: 22px;
+
+body {
+    background-color: $bg;
+}
+.block {
+    width: 600px;
+    margin: 0 auto;
+    & h1 {
+        font-size: $size_h1;
+        text-align: center;
+        margin-bottom: 0;
+    }
+    & img {
+        width: 50%;
+        margin-left: 20%;
+    }
+    &_text {
+        font-size: $size_text;
+        margin-bottom: 0;
+        & span {
+            color: #fd0;
+        }
+    }
+    &_desc {
+        font-size: $size_desc;
+        margin-top: 0;
+        text-align: right;
+    }
+    & .svg_rect {
+        margin-right: 10%;
+    }
+}
