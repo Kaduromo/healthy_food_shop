@@ -30,7 +30,13 @@ body {
         margin-top: 0;
         text-align: right;
     }
-    & .svg_rect {
+    &_svg__rect {
         margin-right: 10%;
+    }
+    & svg {
+        fill: green;
+        &:hover {
+            fill: gold;
+        }
     }
 }
