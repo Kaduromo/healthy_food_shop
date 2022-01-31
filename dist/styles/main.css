@@ -1,1 +1,1 @@
-body{background-color:lime}.block{width:600px;height:600px}.block h1{font-size:50px;text-align:center;margin-bottom:0}.block img{width:70%}.block p{font-size:32px}.block span{font-weight:700;color:#c0c}.block .desc{font-size:30px}
+body{background-color:#ccc}.block{width:600px;margin:0 auto}.block h1{font-size:42px;text-align:center;margin-bottom:0}.block img{width:50%;margin-left:20%}.block_text{font-size:32px;margin-bottom:0}.block_text span{color:#fd0}.block_desc{font-size:22px;margin-top:0;text-align:right}.block .svg_rect{margin-right:10%}
