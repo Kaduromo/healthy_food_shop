@@ -1,42 +1,84 @@
-$bg: #ccc;
-$size_h1: 42px;
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,700;1,700&family=Jost:wght@400;500&display=swap');
+
+$green: #27300f;
+$orange: #d26a22;
 $size_text: 32px;
 $size_desc: 22px;
 
+$font-jost: 'Jost', sans-serif;
+$font-cormorant: 'Cormorant', sans-serif;
+
 body {
-    background-color: $bg;
+    font-size: 1rem;
+    font-family: $font-jost;
 }
-.block {
-    width: 600px;
+.header {
+    max-width: 1440px;
     margin: 0 auto;
-    & h1 {
-        font-size: $size_h1;
-        text-align: center;
-        margin-bottom: 0;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2.5em;
+    &__nav {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding-left: 0;
+        gap: 48px;
     }
-    & img {
-        width: 50%;
-        margin-left: 20%;
-    }
-    &_text {
-        font-size: $size_text;
-        margin-bottom: 0;
-        & span {
-            color: #fd0;
-        }
-    }
-    &_desc {
-        font-size: $size_desc;
-        margin-top: 0;
-        text-align: right;
-    }
-    &_svg__rect {
-        margin-right: 10%;
-    }
-    & svg {
-        fill: green;
+    &__link {
+        font-size: 1rem;
+        color: $green;
+        text-decoration: none;
+        transition: .2s;
         &:hover {
-            fill: gold;
+            color: $orange;
         }
     }
+    &__tel {
+        font-size: 1rem;
+        font-weight: 500;
+        color: $green;
+        text-decoration: none;
+        transition: .2s;
+        &:hover {
+            color: $orange;
+        }
+    }
+    &__cart {
+        display: block;
+        width: 38px;
+        height: 38px;
+        border-radius: 100%;
+        background-image: url(../images/cart.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: $orange;
+        background-size: 17px 15px;
+        position: relative;
+        border: 1px solid $orange;
+        cursor: pointer;
+        transition: .2s;
+        &:hover {
+            background-color: $green;
+            border: 1px solid $green;
+        }
+    }
+    &__counter {
+        font-size: .5rem;
+        color: #fff;
+        position: absolute;
+        right: .5rem;
+        top: .4rem;
+    }
+}
+.logo {
+    display: block;
+    background-image: url(../images/logo.svg);
+    width: 7.5rem;
+    height: 2rem;
+}
+.link-active {
+    color: $orange;
 }
