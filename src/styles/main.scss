@@ -15,15 +15,18 @@ html {
 body {
     font-size: 1.6rem;
     font-family: $font-jost;
+    color: $green;
 }
-.header {
+.container {
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 15px;
+}
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 4rem;
+    padding-top: 3.8rem;
     &__nav {
         display: flex;
         margin: 0;
@@ -31,7 +34,6 @@ body {
         gap: 4.8rem;
     }
     &__link {
-        font-size: 1.6rem;
         color: $green;
         transition: .2s;
         &:hover {
@@ -39,7 +41,6 @@ body {
         }
     }
     &__tel {
-        font-size: 1.6rem;
         font-weight: 500;
         color: $green;
         transition: .2s;
@@ -82,4 +83,45 @@ body {
 }
 .link-active {
     color: $orange;
+}
+.main {
+    background-image: url(../images/main.png);
+    background-size: cover;
+    background-position-x: center;
+    &__item {
+        margin-left: 12rem;
+        max-width: 378px;
+        margin-top: 6rem;
+    }
+    &__link {
+        margin-top: 6rem;
+    }
+}
+.title {
+    font-family: $font-cormorant;
+    font-weight: 700;
+    font-size: 8rem;
+    margin-top: 23rem;
+    &__span {
+        font-style: italic;
+    }
+    &_block {
+        .title__span {
+            display: block;
+        }
+    }
+}
+.description {
+    &_size-s {
+        font-size: 1.8rem;
+    }
+}
+.link {
+    color: #fff;
+    text-transform: uppercase;
+    padding: 2.5rem 4.5rem;
+    background-color: $orange;
+    box-shadow: 0px 1rem 1.1rem .2rem rgba(207, 92, 13, 0.2);
+    border-radius: 3.8rem;
+    display: inline-block;
 }
