@@ -263,15 +263,15 @@ body {
     background-position-x: center;
     background-repeat: no-repeat;
     padding-top: 1rem;
-    padding-bottom: 2rem;
+    padding-bottom: 12.8rem;
     &__text {
         margin-top: 5.7rem;
         max-width: 700px;
     }
-    &__slider {
-        overflow: hidden;
-        padding-top: 100px;
-    }
+}
+.slider {
+    overflow: hidden;
+    padding-top: 100px;
 }
 .swiper {
     overflow: initial;
@@ -287,7 +287,8 @@ body {
         background-size: cover;
         position: relative;
         z-index: 0;
-        &::after {
+        &_white {
+            &::after {
             content: '';
             background-color: rgba(#fff, .55);
             width: calc(100% - 4px);
@@ -299,6 +300,7 @@ body {
             z-index: -1;
             opacity: 0;
             transition: .4s linear;
+            }
         }
         &:hover {
             box-shadow: 0 0 0 2px rgba($green, .4) inset;
@@ -359,6 +361,20 @@ body {
                 background-position: center;
             }
         }
+        &__cover {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            text-align: center;
+        }
+        &__image {
+            height: 100%;
+        }
+        &__footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
     }
     &-pagination {
         display: none;
@@ -379,5 +395,87 @@ body {
     &-button-prev {
         left: initial;
         right: 90px;
+    }
+}
+.counter {
+    display: flex;
+    &__btn {
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        border: 1px solid $green;
+        background-color: transparent;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 100%;
+    }
+    &__minus {
+        pointer-events: none;
+        background-image: url(../images/catalog/minus-counter.svg);
+        background-size: 20px 12px;
+        opacity: .4;
+    }
+    &__plus {
+        background-image: url(../images/catalog/plus-counter.svg);
+        background-size: 20px 12px;
+    }
+    &__input {
+        text-align: center;
+        font-style: 2.4rem;
+        width: 46px;
+        border: none;
+    }
+}
+.about {
+    &__box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 7rem;
+    }
+    &__text {
+        margin-left: 12rem;
+        flex-basis: 620px;
+    }
+    &__list {
+        font-family: $font-cormorant;
+        font-style: italic;
+        font-size: 3rem;
+        display: flex;
+        gap: 9rem;
+    }
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &::before {
+            content: '';
+            width: 84px;
+            height: 84px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            border: 1px solid rgba($green, .4);
+            border-radius: 100%;
+            margin-bottom: 1.5rem;
+        }
+        &:nth-child(1) {
+            &::before {
+                background-image: url(../images/about-icon-1.svg);
+                background-size: 44px 41px;
+            }
+        }
+        &:nth-child(2) {
+            &::before {
+                background-image: url(../images/about-icon-2.svg);
+                background-size: 40px 40px;
+            }
+        }
+        &:nth-child(3) {
+            &::before {
+                background-image: url(../images/about-icon-3.svg);
+                background-size: 45px 39px;
+            }
+        }
     }
 }
