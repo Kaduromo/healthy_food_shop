@@ -667,6 +667,28 @@ body {
         gap: 3rem;
         margin-top: 4.3rem;
     }
+    &__item {
+        height: 32px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        opacity: .4;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    &__mastercard {
+        width: 53px;
+        background-image: url(../images/mastercard.svg);
+    }
+    &__visa {
+        width: 74px;
+        background-image: url(../images/visa.svg);
+    }
+    &__paypal {
+        width: 87px;
+        background-image: url(../images/paypal.svg);
+    }
 }
 .contact {
     padding: 3rem 0;
