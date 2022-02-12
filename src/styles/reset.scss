@@ -36,6 +36,8 @@ main {
 }
    button,
    input {
-     overflow: visible;
-     border: none;
+    font-family: inherit;
+    font-size: 100%;
+    overflow: visible;
+    border: none;
    }
