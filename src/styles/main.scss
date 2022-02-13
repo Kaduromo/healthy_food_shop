@@ -200,7 +200,7 @@ body {
     &__tomato {
         width: 10.8rem;
         right: 122px;
-        bottom: 105px;
+        bottom: 124px;
     }
     &__avocado {
         width: 13.7rem;
@@ -219,7 +219,7 @@ body {
     }
     &__beans {
         width: 13.2rem;
-        bottom: 160px;
+        bottom: 184px;
         left: -30px;
     }
 }
@@ -525,7 +525,7 @@ body {
     background-position-x: center;
     background-repeat: no-repeat;
     padding-top: 7rem;
-    padding-bottom: 19.5rem;
+    padding-bottom: 19.4rem;
     &__text {
         margin-top: 3.8rem;
     }
@@ -559,11 +559,11 @@ body {
     &-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
+        gap: 20px 15px;
         &__item {
             border: 1px solid rgba($green, .4);
             border-radius: 2rem;
-            padding: 2.7rem 3rem 3.8rem;
+            padding: 3rem 2rem 3.8rem 3rem;
             &:hover {
                 box-shadow: 0 0 0 2px rgba($green, .4) inset;
             }
@@ -643,12 +643,12 @@ body {
     background-size: cover;
     background-position-x: center;
     background-repeat: no-repeat;
-    padding: 14rem 0;
+    padding: 13.8rem 0;
     &__box {
         display: flex;
         font-size: 1.8rem;
         line-height: 1.5;
-        margin-top: 7.5rem;
+        margin-top: 7rem;
         margin-left: 12.2rem;
         gap: 11%;
     }
@@ -707,7 +707,7 @@ body {
     }
 }
 .contact {
-    padding: 3rem 0 15.7rem;
+    padding: 3.5rem 0 15.7rem;
     border-bottom: 1px solid #e2e3df;
     &-box {
         display: flex;
@@ -823,7 +823,7 @@ body {
         align-items: center;
         justify-content: space-between;
         margin-top: 7.4rem;
-        margin-bottom: 3.6rem;
+        margin-bottom: 5.4rem;
         & .logo {
             transform: scale(1.5);
             margin-left: 3.5rem;
@@ -858,7 +858,7 @@ body {
         letter-spacing: 1.3px;
     }
     &__list {
-        margin-bottom: 3rem;
+        margin-bottom: 2.2rem;
     }
     &__link {
         color: $green;
