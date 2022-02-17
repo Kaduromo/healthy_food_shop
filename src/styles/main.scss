@@ -48,6 +48,7 @@ body {
         transition: .2s;
         letter-spacing: 1px;
         margin-left: 15rem;
+        transition: .2s;
         &:hover {
             color: $orange;
         }
@@ -147,6 +148,8 @@ body {
         color: $green;
         text-align: left;
         position: absolute;
+        cursor: pointer;
+        transition: .2s;
         &:hover {
             &::before {
                 background-color: $orange;
@@ -161,6 +164,7 @@ body {
             box-shadow: 0 0 0 4px #fff, 0 0 0 5px $green;
             border-radius: 100%;
             position: absolute;
+            transition: .2s;
 
         }
         &_1 {
@@ -255,6 +259,7 @@ body {
     box-shadow: 0px 1rem 1.1rem .2rem rgba(207, 92, 13, 0.2);
     border-radius: 3.8rem;
     display: inline-block;
+    cursor: pointer;
     transition: .2s;
     &_min {
         font-size: 1.4rem;
@@ -291,6 +296,7 @@ body {
         background-size: cover;
         position: relative;
         z-index: 0;
+        transition: .2s linear;
         &_white {
             height: 510px;
             display: flex;
@@ -308,8 +314,13 @@ body {
                 left: 2px;
                 z-index: -1;
                 opacity: 0;
-                transition: .4s linear;
+                transition: .3s linear;
             }
+        }
+        &__hover {
+            opacity: 0;
+            height: 0;
+            transition: .3s linear;
         }
         &:hover {
             box-shadow: 0 0 0 2px rgba($green, .4) inset;
@@ -349,11 +360,6 @@ body {
             font-size: 2.4rem;
             margin-bottom: 3.2rem;
         }
-        &__hover {
-            opacity: 0;
-            height: 0;
-            transition: .4s linear;
-        }
         &__text {
             color: rgba($green, .7);
             line-height: 1.5;
@@ -370,6 +376,7 @@ body {
             gap: 2rem;
             letter-spacing: 0.1rem;
             opacity: .8;
+            transition: .2s;
             &:hover {
                 opacity: 1;
             }
@@ -452,9 +459,14 @@ body {
     }
     &__input {
         text-align: center;
-        font-style: 2.4rem;
+        font-size: 2.4rem;
         width: 46px;
         border: none;
+        transition: .2s;
+        &:focus {
+            border: 1px solid rgba($green, 1);
+            outline: none;
+        }
         &_min {
             width: 33px;
         }
@@ -535,7 +547,7 @@ body {
     align-items: center;
     gap: 2rem;
     &__item {
-        flex-basis: 230px;
+        min-width: 230px;
         text-align: center;
     }
     &__link {
@@ -545,6 +557,7 @@ body {
         font-size: 1.8rem;
         border-radius: 4rem;
         display: block;
+        transition: .2s;
         &:hover {
             border: 1px solid $orange;
             color: $orange;
@@ -564,6 +577,7 @@ body {
             border: 1px solid rgba($green, .4);
             border-radius: 2rem;
             padding: 3rem 2rem 3.8rem 3rem;
+            transition: .2s;
             &:hover {
                 box-shadow: 0 0 0 2px rgba($green, .4) inset;
             }
@@ -623,6 +637,7 @@ body {
         opacity: .8;
         margin: 6.7rem auto 0;
         cursor: pointer;
+        transition: .2s;
         &:hover {
             opacity: 1;
         }
@@ -664,6 +679,7 @@ body {
     &__link {
         color: $green;
         position: relative;
+        transition: .2s;
         &::after {
             content: '';
             width: 100%;
@@ -673,6 +689,12 @@ body {
             position: absolute;
             left: 0;
             bottom: 3px;
+        }
+        &:hover {
+            color: $orange;
+            &::after {
+                background-color: $orange;
+            }
         }
     }
     &__color {
@@ -689,6 +711,7 @@ body {
         background-size: contain;
         background-position: center;
         opacity: .4;
+        transition: .2s;
         &:hover {
             opacity: 1;
         }
@@ -696,14 +719,26 @@ body {
     &__mastercard {
         width: 53px;
         background-image: url(../images/mastercard.svg);
+        transform: scale(1);
+        &:hover {
+            transform: scale(1.05);
+        }
     }
     &__visa {
         width: 74px;
         background-image: url(../images/visa.svg);
+        transform: scale(1);
+        &:hover {
+            transform: scale(1.05);
+        }
     }
     &__paypal {
         width: 87px;
         background-image: url(../images/paypal.svg);
+        transform: scale(1);
+        &:hover {
+            transform: scale(1.05);
+        }
     }
 }
 .contact {
@@ -740,16 +775,17 @@ body {
             align-items: center;
             gap: 3rem;
             margin-top: 1.5rem;
-            &:hover {
-                color: $orange;
-            }
+            transition: .2s;
             &::before {
                 content:"";
                 background-repeat: no-repeat;
                 background-position: center;
                 width:29px;
                 height:30px;
-                display:block
+                display:block;
+            }
+            &:hover {
+                color: $orange;
             }
         }
         &__tel {
@@ -788,6 +824,7 @@ body {
         display: block;
         width: 100%;
         border-radius: 2rem;
+        transition: .2s;
         &:focus {
             border: 1px solid rgba($green, 1);
             outline: none;
@@ -810,6 +847,10 @@ body {
     &__docs {
         color: rgba($green, .6);
         border-bottom: 1px solid #ecedec;
+        transition: .2s;
+        &:hover {
+            color: rgba($green, 1);
+        }
     }
 }
 .footer {
@@ -836,15 +877,19 @@ body {
         justify-content: space-between;
         font-size: 1.6rem;
         opacity: .6;
+        transition: .2s;
+        &:hover {
+            opacity: 1;
+        }
     }
     &__author {
-        opacity: .6;
         & a {
             color: $green;
             font-weight: 500;
-        }
-        &:hover {
-            opacity: 1;
+            transition: .2s;
+            &:hover {
+                color: $orange;
+            }
         }
     }
     &__contact {
@@ -863,11 +908,16 @@ body {
     &__link {
         color: $green;
         font-size: 1.8rem;
+        transition: .2s;
+        &:hover {
+            color: $orange;
+        }
     }
     &__tel {
         font-size: 2.6rem;
         color: $green;
         margin-bottom: 3.5rem;
+        transition: .2s;
         &:hover {
             color: $orange;
         }
@@ -876,6 +926,7 @@ body {
         font-size: 1.8rem;
         color: $green;
         margin-bottom: 3rem;
+        transition: .2s;
         &:hover {
             color: $orange;
         }
@@ -888,6 +939,8 @@ body {
         &__vk {
             display: flex;
             opacity: .8;
+            transform: scale(1);
+            transition: .2s;
             &::before {
                 content: '';
                 width: 50px;
@@ -902,6 +955,7 @@ body {
             }
             &:hover {
                 opacity: 1;
+                transform: scale(1.1);
                 &::before {
                     opacity: 1;
                 }
@@ -910,6 +964,8 @@ body {
         &__inst {
             display: flex;
             opacity: .8;
+            transform: scale(1);
+            transition: .2s;
             &::before {
                 content: '';
                 width: 50px;
@@ -923,6 +979,7 @@ body {
             }
             &:hover {
                 opacity: 1;
+                transform: scale(1.1);
                 &::before {
                     opacity: 1;
                 }
@@ -931,6 +988,8 @@ body {
         &__fb {
             display: flex;
             opacity: .8;
+            transform: scale(1);
+            transition: .2s;
             &::before {
                 content: '';
                 width: 50px;
@@ -944,6 +1003,7 @@ body {
             }
             &:hover {
                 opacity: 1;
+                transform: scale(1.1);
                 &::before {
                     opacity: 1;
                 }
