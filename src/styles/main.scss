@@ -135,8 +135,8 @@ body {
     }
     &__image {
         width: 92%;
-        box-shadow: 29px 52px 121px -76px rgb(39, 48, 15, .8);
         border-radius: 100%;
+        animation: shadow 3.7s linear infinite;
     }
     &__text {
         margin-top: 3rem;
@@ -207,14 +207,14 @@ body {
         bottom: 124px;
     }
     &__avocado {
-        width: 13.7rem;
-        top: 50px;
-        right: 40px;
+        width: 17.7rem;
+        top: 47px;
+        right: 0;
     }
     &__cucumber {
-        width: 7.8rem;
+        width: 8rem;
         top: 0;
-        left: 690px;
+        left: 687px;
     }
     &__pepper {
         width: 8.1rem;
@@ -222,9 +222,20 @@ body {
         left: 40px;
     }
     &__beans {
-        width: 13.2rem;
-        bottom: 184px;
-        left: -30px;
+        width: 12rem;
+        bottom: 170px;
+        left: -15px;
+    }
+}
+@keyframes shadow {
+    0% {
+        box-shadow: 0 0 0 0 rgb($green, .5);
+    }
+    50% {
+        box-shadow: 20px 25px 35px 0 rgb($green, .5);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgb($green, .5);
     }
 }
 .title {
@@ -276,7 +287,7 @@ body {
     background-position-x: center;
     background-repeat: no-repeat;
     padding-top: 1rem;
-    padding-bottom: 16.5rem;
+    padding-bottom: 16.3rem;
     &__text {
         margin-top: 5.6rem;
         max-width: 700px;
@@ -537,7 +548,7 @@ body {
     background-position-x: center;
     background-repeat: no-repeat;
     padding-top: 7rem;
-    padding-bottom: 19.4rem;
+    padding-bottom: 19rem;
     &__text {
         margin-top: 3.8rem;
     }
@@ -632,10 +643,10 @@ body {
         color: $green;
         display: flex;
         align-items: center;
-        gap: 1.5rem;
+        gap: 1.3rem;
         letter-spacing: 0.1rem;
         opacity: .8;
-        margin: 6.7rem auto 0;
+        margin: 6.2rem auto 0;
         cursor: pointer;
         transition: .2s;
         &:hover {
@@ -663,7 +674,7 @@ body {
         display: flex;
         font-size: 1.8rem;
         line-height: 1.5;
-        margin-top: 7rem;
+        margin-top: 7.5rem;
         margin-left: 12.2rem;
         gap: 11%;
     }
@@ -763,7 +774,7 @@ body {
         }
         &__list {
             font-size: 2.4rem;
-            margin-top: 6.4rem;
+            margin-top: 6rem;
         }
         &__form {
             flex-basis: 590px;
@@ -876,19 +887,19 @@ body {
         align-items: center;
         justify-content: space-between;
         font-size: 1.6rem;
-        opacity: .6;
-        transition: .2s;
+        color: rgba($green, .6);
+        letter-spacing: .8px;
         &:hover {
-            opacity: 1;
+            color: rgba($green, .6);
         }
     }
     &__author {
         & a {
-            color: $green;
+            color: rgba($green, .6);
             font-weight: 500;
             transition: .2s;
             &:hover {
-                color: $orange;
+                color: rgba($green, 1);
             }
         }
     }
