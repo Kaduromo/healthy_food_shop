@@ -20,8 +20,11 @@ $font-cormorant: 'Cormorant', sans-serif;
     @if $points == 768 {
         @media (max-width: 48em) {@content; }
     }
-    @if $points == 900 {
-        @media (max-width: 900px) {@content; }
+    @if $points == 864 {
+        @media (max-width: 54em) {@content; }
+    }
+    @if $points == 960 {
+        @media (max-width: 60em) {@content; }
     }
     @if $points == 1184 {
         @media (max-width: 74em) {@content; }
@@ -31,6 +34,9 @@ $font-cormorant: 'Cormorant', sans-serif;
     }
     @if $points == 1344 {
         @media (max-width: 84em) {@content; }
+    }
+    @if $points == 1728 {
+        @media (max-width: 108em) {@content; }
     }
 }
 
@@ -65,7 +71,7 @@ body {
             flex-grow: 0;
             margin-left: 0;
         }
-        @include breakpoint(900) {
+        @include breakpoint(864) {
             display: none;
         }
     }
@@ -77,6 +83,7 @@ body {
         }
     }
     &__link {
+        font-size: calc(14px + 1.4 * ((100vw - 320px) / (1440 - 320))); /*16*/
         color: $green;
         transition: .2s;
         &:hover {
@@ -166,7 +173,7 @@ body {
         }
     }
     &_menu {
-        @include breakpoint(900) {
+        @include breakpoint(864) {
             display: block;
             width: 38px;
             height: 38px;
@@ -235,15 +242,26 @@ body {
         @include breakpoint(1280) {
             margin-left: 8rem;
         }
+        @include breakpoint(768) {
+            margin: 3rem auto;
+            max-width: 100%;
+        }
     }
     &__link {
         margin-top: 5rem;
+        @include breakpoint(768) {
+            text-align: center;
+        }
     }
     &__flex {
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: 30px;
+        @include breakpoint(1184) {
+            padding-top: 3rem;
+            padding-bottom: 5rem;
+        }
     }
     &__cover {
         flex-basis: 760px;
@@ -260,8 +278,16 @@ body {
             height: 650px;
         }
         @include breakpoint(1184) {
-            flex-basis: calc(100% - 395px);
-            height: 600px;
+            flex-basis: 580px;
+            height: 580px;
+        }
+        @include breakpoint(960) {
+            border: none;
+            flex-basis: calc(100% - 340px);
+            height: auto;
+        }
+        @include breakpoint(768) {
+            display: none;
         }
     }
     &__line {
@@ -279,21 +305,40 @@ body {
         }
         @include breakpoint(1184) {
             border: none;
-            width: 580px;
-            height: 580px;
+            width: 560px;
+            height: 560px;
+        }
+        @include breakpoint(960) {
+            width: auto;
+            height: auto;
         }
     }
     &__image {
         width: 92%;
         border-radius: 100%;
         animation: shadow 3.7s linear infinite;
+        &-mobi {
+            display: none;
+            @include breakpoint(768) {
+                display: block;
+                max-width: 300px;
+                margin: 3rem auto 0;
+            }
+        }
     }
     &__text {
         margin-top: 3rem;
+        @include breakpoint(960) {
+            flex-basis: 340px;
+        }
+        @include breakpoint(768) {
+            flex-basis: 100%;
+            margin-top: 0;
+        }
     }
     &__btn {
         font-family: $font-jost;
-        font-size: 1.6rem;
+        font-size: calc(14px + 1.4 * ((100vw - 320px) / (1440 - 320)));
         background-color: transparent;
         color: $green;
         text-align: left;
@@ -323,6 +368,12 @@ body {
             @include breakpoint(1344) {
                 top: 18px;
             }
+            @include breakpoint(1184) {
+                top: 6px;
+            }
+            @include breakpoint(960) {
+                display: none;
+            }
             &::before {
                 bottom: 12px;
                 right: -34px;
@@ -334,6 +385,12 @@ body {
             @include breakpoint(1344) {
                 top: 95px;
             }
+            @include breakpoint(1184) {
+                top: 40px;
+            }
+            @include breakpoint(960) {
+                display: none;
+            }
             &::before {
                 top: 22px;
                 left: -26px;
@@ -344,6 +401,12 @@ body {
             right: 248px;
             @include breakpoint(1344) {
                 bottom: -36px;
+            }
+            @include breakpoint(1184) {
+                bottom: -64px;
+            }
+            @include breakpoint(960) {
+                display: none;
             }
             &::before {
                 bottom: 57px;
@@ -369,6 +432,11 @@ body {
         width: 17.7rem;
         top: 47px;
         right: 0;
+        @include breakpoint(1728) {
+            width: 16rem;
+            top: 72px;
+            right: -80px;
+        }
     }
     &__cucumber {
         width: 8rem;
@@ -379,6 +447,10 @@ body {
         width: 8.1rem;
         top: 395px;
         left: 40px;
+        @include breakpoint(960) {
+            bottom: 200px;
+            left: -10px;
+        }
     }
     &__beans {
         width: 12rem;
@@ -400,10 +472,10 @@ body {
 .title {
     font-family: $font-cormorant;
     font-weight: 700;
-    font-size: 8rem;
     line-height: 1;
-    @include breakpoint(1280) {
-        font-size: 7rem;
+    font-size: calc(30px + 40 * ((100vw - 320px) / (1440 - 320))); /*18*/
+    @include breakpoint(768) {
+        text-align: center;
     }
     &__span {
         font-style: italic;
@@ -416,20 +488,18 @@ body {
 }
 .description {
     line-height: 1.5;
+    @include breakpoint(768) {
+        text-align: center;
+    }
     &_size-s {
-        font-size: 1.8rem;
-        @include breakpoint(1280) {
-            font-size: 1.6rem;
-        }
+        font-size: calc(12px + 4.2 * ((100vw - 320px) / (1440 - 320))); /*18*/
     }
     &_size-m {
-        font-size: 2.4rem;
-        @include breakpoint(1280) {
-            font-size: 2.2rem;
-        }
+        font-size: calc(12px + 8.4 * ((100vw - 320px) / (1440 - 320))); /*24*/
     }
 }
 .link {
+    font-size: calc(12px + 2.8 * ((100vw - 320px) / (1440 - 320))); /*16*/
     color: #fff;
     letter-spacing: 0.11rem;
     text-transform: uppercase;
@@ -440,11 +510,8 @@ body {
     display: inline-block;
     cursor: pointer;
     transition: .2s;
-    @include breakpoint(1184) {
-        font-size: 1.4rem;
-    }
     &_min {
-        font-size: 1.4rem;
+        font-size: calc(10px + 2.8 * ((100vw - 320px) / (1440 - 320))); /*14*/
         padding: 2rem 3.4rem;
         box-shadow: 0 1rem 1.1rem .17rem rgba(207, 92, 13, .2);
     }
@@ -467,6 +534,12 @@ body {
 .slider {
     overflow: hidden;
     padding-top: 100px;
+    @include breakpoint(1184) {
+        min-width: 450px;
+        margin: 0 auto;
+        padding-top: 5rem;
+        padding-bottom: 3rem;
+    }
 }
 .swiper {
     overflow: initial;
@@ -484,7 +557,11 @@ body {
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
+            background-size: contain;
             padding: 3.5rem 3.7rem;
+            @include breakpoint(1184) {
+                height: 400px;
+            }
             &::after {
                 content: '';
                 background-color: rgba(#fff, .55);
@@ -525,12 +602,12 @@ body {
         }
         &__title {
             font-family: $font-cormorant;
-            font-size: 3rem;
+            font-size: calc(14px + 11.2 * ((100vw - 320px) / (1440 - 320))); /*30*/
             color: $green;
             margin-top: 3rem;
         }
         &__description {
-            font-size: 1.8rem;
+            font-size: calc(10px + 5.6 * ((100vw - 320px) / (1440 - 320))); /*18*/
             color: rgba($green, .7);
             margin-top: 2.6rem;
             margin-bottom: 2.7rem;
@@ -539,7 +616,7 @@ body {
             line-height: 1.5;
         }
         &__price {
-            font-size: 2.4rem;
+            font-size: calc(12px + 8.4 * ((100vw - 320px) / (1440 - 320))); /*24*/
             margin-bottom: 3.2rem;
         }
         &__text {
@@ -594,10 +671,16 @@ body {
     }
     &-pagination {
         display: none;
+        @include breakpoint(768) {
+            display: block;
+        }
     }
     &-button-next, &-button-prev {
         top: -64px;
         width: calc(var(--swiper-navigation-size)/ 44 * 5);
+        @include breakpoint(768) {
+            display: none;
+        }
         &:hover {
             &::after {
                 color: rgba($green, 1);
@@ -612,6 +695,20 @@ body {
         left: initial;
         right: 90px;
     }
+}
+.swiper-horizontal>.swiper-pagination-bullets {
+    bottom: -30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+}
+.swiper-pagination-bullet-active {
+    background-color: $orange;
+    border: 1px solid $orange;
 }
 .counter {
     display: flex;
@@ -669,13 +766,20 @@ body {
     &__text {
         margin-left: 12.4rem;
         flex-basis: 580px;
+        @include breakpoint(1280) {
+            margin-left: 8rem;
+            padding-right: 4vw;
+        }
+        @include breakpoint(768) {
+            margin: 3rem auto;
+        }
     }
     &__list {
         font-family: $font-cormorant;
         font-style: italic;
-        font-size: 3rem;
+        font-size: calc(14px + 11.2 * ((100vw - 320px) / (1440 - 320))); /*30*/
         display: flex;
-        gap: 9rem;
+        gap: 4.65vw;
         margin-bottom: 2.2rem;
     }
     &__item {
@@ -736,7 +840,7 @@ body {
         padding: 2.4rem 0;
         border: 1px solid rgba($green, .5);
         color: rgba($green, .5);
-        font-size: 1.8rem;
+        font-size: calc(10px + 5.6 * ((100vw - 320px) / (1440 - 320))); /*18*/
         border-radius: 4rem;
         display: block;
         transition: .2s;
@@ -779,12 +883,12 @@ body {
         }
         &__title {
             font-family: $font-cormorant;
-            font-size: 3rem;
+            font-size: calc(14px + 11.2 * ((100vw - 320px) / (1440 - 320))); /*30*/
             color: $green;
             margin-top: 1.7rem;
         }
         &__description {
-            font-size: 1.5rem;
+            font-size: calc(10px + 4.2 * ((100vw - 320px) / (1440 - 320))); /*16*/
             color: rgba($green, .7);
             margin-top: 1.8rem;
             min-height: 61px;
@@ -792,7 +896,7 @@ body {
             line-height: 1.5;
         }
         &__price {
-            font-size: 2.4rem;
+            font-size: calc(12px + 8.4 * ((100vw - 320px) / (1440 - 320))); /*24*/
             margin-bottom: 3rem;
         }
         &__footer {
@@ -843,11 +947,18 @@ body {
     padding: 13.8rem 0;
     &__box {
         display: flex;
-        font-size: 1.8rem;
+        font-size: calc(12px + 4.2 * ((100vw - 320px) / (1440 - 320))); /*18*/
         line-height: 1.5;
         margin-top: 7.5rem;
         margin-left: 12.2rem;
         gap: 11%;
+        @include breakpoint(1280) {
+            margin-left: 8rem;
+        }
+        @include breakpoint(768) {
+            margin: 3rem auto;
+            max-width: 100%;
+        }
     }
     &__text {
         flex-basis: 44%;
@@ -938,13 +1049,20 @@ body {
             flex-grow: 1;
             margin-top: 6rem;
             margin-left: 12.5rem;
+            @include breakpoint(1280) {
+                margin-left: 8rem;
+            }
+            @include breakpoint(768) {
+                margin: 3rem auto;
+                max-width: 100%;
+            }
         }
         &__description {
-            font-size: 1.8rem;
+            font-size: calc(12px + 4.2 * ((100vw - 320px) / (1440 - 320))); /*18*/
             line-height: 1.5;
         }
         &__list {
-            font-size: 2.4rem;
+            font-size: calc(12px + 8.4 * ((100vw - 320px) / (1440 - 320))); /*24*/
             margin-top: 6rem;
         }
         &__form {
@@ -989,12 +1107,12 @@ body {
     padding: 3.7rem 5.8rem 4rem;
     border-radius: 2rem;
     &__title {
-        font-size: 3rem;
+        font-size: calc(22px + 5.6 * ((100vw - 320px) / (1440 - 320))); /*30*/
         font-family: $font-cormorant;
         margin-bottom: 3.3rem;
     }
     &__label {
-        font-size: 1.2rem;
+        font-size: calc(10px + 1.4 * ((100vw - 320px) / (1440 - 320))); /*12*/
         margin-bottom: 1.2rem;
         display: block;
         margin-left: 0.6rem;
@@ -1016,7 +1134,7 @@ body {
         }
     }
     &__check {
-        font-size: 1.2rem;
+        font-size: calc(10px + 1.4 * ((100vw - 320px) / (1440 - 320))); /*12*/
         color: rgba($green, .6);
         line-height: 1.5;
         max-width: 360px;
@@ -1047,14 +1165,14 @@ footer {
     &__box {
         display: flex;
         justify-content: space-between;
-        font-size: 1.8rem;
+        font-size: calc(12px + 4.2 * ((100vw - 320px) / (1440 - 320))); /*18*/
         margin-bottom: 5.8rem;
     }
     &__text {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        font-size: 1.6rem;
+        font-size: calc(10px + 4.2 * ((100vw - 320px) / (1440 - 320))); /*16*/
         color: rgba($green, .6);
         letter-spacing: .8px;
         &:hover {
@@ -1094,7 +1212,7 @@ footer {
         }
     }
     &__tel {
-        font-size: 2.7rem;
+        font-size: calc(30px - 2.1 * ((100vw - 320px) / (1440 - 320))); /*18*/
         color: $green;
         margin-bottom: 3.5rem;
         transition: .2s;
@@ -1103,7 +1221,7 @@ footer {
         }
     }
     &__email {
-        font-size: 1.8rem;
+        font-size: calc(12px + 4.2 * ((100vw - 320px) / (1440 - 320))); /*18*/
         color: $green;
         margin-bottom: 3rem;
         transition: .2s;

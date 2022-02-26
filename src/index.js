@@ -3,9 +3,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './styles/main.scss';
 
-/*
-import './index.html';
-*/
+// import './index.html';
 
 import $ from 'jquery';
 
@@ -27,6 +25,20 @@ var swiper = new Swiper(".offerSwiper", {
         prevEl: ".swiper-button-prev",
     },
     modules: [Navigation, Pagination],
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+      },
+      600: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+      },
+      1000: {
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+      }
+    }
 });
 
 var swiper = new Swiper(".trendsSwiper", {
