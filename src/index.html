@@ -11,7 +11,7 @@
         <div class="container">
             <header class="header">
                 <a href="#" class="logo"></a>
-                <nav>
+                <nav class="header_navigation">
                     <ul class="header__nav">
                         <li class="header_item"><a href="#" class="header__link">Наша продукция</a></li>
                         <li class="header_item"><a href="#" class="header__link link-active">О компании</a></li>
@@ -21,10 +21,14 @@
                         <li class="header_item"><a href="#" class="header__link">Контакты</a></li>
                     </ul>
                 </nav>
-                <a href="+79453425555" class="header__tel">+7 945 342 55 55</a>
-                <button href="#" class="header__cart">
-                    <span class="header__counter">0</span>
-                </button>
+                <a href="tel:+79453425555" class="header__tel">+7 945 342 55 55</a>
+                <div class="header_buttons">
+                    <a href="tel:+79453425555" class="header__phone"></a>
+                    <button class="header_menu"><span></span></button>
+                    <button href="#" class="header__cart">
+                        <span class="header__counter">0</span>
+                    </button>
+                </div>
             </header>
             <div class="main__flex">
                 <div class="main__text">
@@ -507,43 +511,45 @@
         <footer>
             <div class="container">
                 <div class="footer__box">
-                    <a href="#" class="logo"></a>
-                    <ul class="footer__list">
-                        <li class="footer__item">
-                            <a href="#" class="footer__link">Наша продукция</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="#" class="footer__link">Новинки</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="#" class="footer__link">Доставка</a>
-                        </li>
-                    </ul>
-                    <ul class="footer__list">
-                        <li class="footer__item">
-                            Москва, ул.&nbsp;Ленинградская&nbsp;64
-                        </li>
-                        <li class="footer__item">
-                            пн-пт с&nbsp;09:00 до&nbsp;21:00
-                        </li>
-                        <li class="footer__item">
-                            сб-вс с&nbsp;09:00 до&nbsp;19:00
-                        </li>
-                    </ul>
-                    <div class="footer__contact">
-                        <a href="tel:+79453425555" class="footer__tel">+7 945 342 55 55</a>
-                        <a href="mailto:healthlyfood@mail.ru" class="footer__email">e-mail: healthlyfood@mail.ru</a>
-                        <ul class="footer-social">
-                            <li class="footer-social__item">
-                                <a href="#" target="_blank" class="footer__link footer-social__vk"></a>
+                    <a href="#" class="logo logo_footer"></a>
+                    <div class="footer__info">
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a href="#" class="footer__link">Наша продукция</a>
                             </li>
-                            <li class="footer-social__item">
-                                <a href="#" target="_blank" class="footer__link footer-social__inst"></a>
+                            <li class="footer__item">
+                                <a href="#" class="footer__link">Новинки</a>
                             </li>
-                            <li class="footer-social__item">
-                                <a href="#" target="_blank" class="footer__link footer-social__fb"></a>
+                            <li class="footer__item">
+                                <a href="#" class="footer__link">Доставка</a>
                             </li>
                         </ul>
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                Москва, ул.&nbsp;Ленинградская&nbsp;64
+                            </li>
+                            <li class="footer__item">
+                                пн-пт с&nbsp;09:00 до&nbsp;21:00
+                            </li>
+                            <li class="footer__item">
+                                сб-вс с&nbsp;09:00 до&nbsp;19:00
+                            </li>
+                        </ul>
+                        <div class="footer__contact">
+                            <a href="tel:+79453425555" class="footer__tel">+7 945 342 55 55</a>
+                            <a href="mailto:healthlyfood@mail.ru" class="footer__email">e-mail: healthlyfood@mail.ru</a>
+                            <ul class="footer-social">
+                                <li class="footer-social__item">
+                                    <a href="#" target="_blank" class="footer__link footer-social__vk"></a>
+                                </li>
+                                <li class="footer-social__item">
+                                    <a href="#" target="_blank" class="footer__link footer-social__inst"></a>
+                                </li>
+                                <li class="footer-social__item">
+                                    <a href="#" target="_blank" class="footer__link footer-social__fb"></a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="footer__text">

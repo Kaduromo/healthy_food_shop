@@ -10,6 +10,30 @@ $size_desc: 22px;
 $font-jost: 'Jost', sans-serif;
 $font-cormorant: 'Cormorant', sans-serif;
 
+@mixin breakpoint($points) {
+    @if $points == 360 {
+        @media (max-width: 22.5em) {@content; }
+    }
+    @if $points == 576 {
+        @media (max-width: 36em) {@content; }
+    }
+    @if $points == 768 {
+        @media (max-width: 48em) {@content; }
+    }
+    @if $points == 900 {
+        @media (max-width: 900px) {@content; }
+    }
+    @if $points == 1184 {
+        @media (max-width: 74em) {@content; }
+    }
+    @if $points == 1280 {
+        @media (max-width: 80em) {@content; }
+    }
+    @if $points == 1344 {
+        @media (max-width: 84em) {@content; }
+    }
+}
+
 html {
     font-size: 10px;
 }
@@ -23,6 +47,9 @@ body {
     margin: 0 auto;
     padding: 0 15px;
     box-sizing: content-box;
+    @include breakpoint(768) {
+        max-width: 600px;
+    }
 }
 .header {
     display: flex;
@@ -30,10 +57,24 @@ body {
     align-items: center;
     padding-top: 4rem;
     padding-bottom: 5rem;
+    gap: 4%;
+    &_navigation {
+        flex-grow: 1;
+        margin-left: 6.5rem;
+        @include breakpoint(1280) {
+            flex-grow: 0;
+            margin-left: 0;
+        }
+        @include breakpoint(900) {
+            display: none;
+        }
+    }
     &__nav {
         display: flex;
         gap: 4.7rem;
-        margin-left: 3.5rem;
+        @include breakpoint(1184) {
+            gap: 2.7rem;
+        }
     }
     &__link {
         color: $green;
@@ -45,12 +86,14 @@ body {
     &__tel {
         font-weight: 500;
         color: $green;
-        transition: .2s;
-        letter-spacing: 1px;
-        margin-left: 15rem;
+        letter-spacing: .13rem;
+        flex-basis: 160px;
         transition: .2s;
         &:hover {
             color: $orange;
+        }
+        @include breakpoint(1184) {
+            display: none;
         }
     }
     &__cart {
@@ -67,25 +110,112 @@ body {
         border: 1px solid $orange;
         cursor: pointer;
         transition: .2s;
+        @include breakpoint(1184) {
+            background-image: url(../images/cart-mobi.svg);
+            background-color: #fff;
+            border: 1px solid $green;
+            opacity: 0.8;
+        }
         &:hover {
             background-color: $green;
             border: 1px solid $green;
+            @include breakpoint(1184) {
+                background-color: #fff;
+                opacity: 1;
+            }
         }
     }
     &__counter {
         font-size: .8rem;
         color: #fff;
         position: absolute;
-        right: .8rem;
-        top: .5rem;
+        right: .6rem;
+        top: .4rem;
+        @include breakpoint(1184) {
+            color: $green;
+        }
+    }
+    &_buttons {
+        @include breakpoint(1184) {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+    }
+    &__phone, &_menu {
+        display: none;
+    }
+    &__phone {
+        @include breakpoint(1184) {
+            display: block;
+            width: 38px;
+            height: 38px;
+            border-radius: 100%;
+            background-image: url(../images/tel.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #fff;
+            background-size: 1.7rem 1.5rem;
+            position: relative;
+            border: 1px solid $green;
+            opacity: .8;
+            transition: .2s;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+    &_menu {
+        @include breakpoint(900) {
+            display: block;
+            width: 38px;
+            height: 38px;
+            border-radius: 100%;
+            background-color: #fff;
+            position: relative;
+            border: 1px solid $green;
+            opacity: .8;
+            transition: .2s;
+            &::before, &::after {
+                content: "";
+                background-color: $green;
+                position: absolute;
+                width: 52%;
+                height: 2px;
+                left: 24%;
+            }
+            &::before {
+                top: 11px;
+            }
+            &::after {
+                bottom: 11px;
+            }
+            & span {
+                background-color: $green;
+                position: absolute;
+                width: 52%;
+                height: 2px;
+                left: 24%;
+                top: 17.3px;
+            }
+            &:hover {
+                opacity: 1;
+            }
+        }
     }
 }
 .logo {
     display: block;
     background-image: url(../images/logo.svg);
     background-repeat: no-repeat;
+    background-size: contain;
     width: 12rem;
     height: 3.2rem;
+}
+.logo_footer {
+    flex-basis: 18rem;
+    height: 4.8rem;
+    margin-top: 0.8rem;
 }
 .link-active {
     color: $orange;
@@ -102,6 +232,9 @@ body {
         margin-left: 12.5rem;
         max-width: 378px;
         margin-top: 6rem;
+        @include breakpoint(1280) {
+            margin-left: 8rem;
+        }
     }
     &__link {
         margin-top: 5rem;
@@ -122,6 +255,14 @@ body {
         justify-content: center;
         align-items: center;
         position: relative;
+        @include breakpoint(1344) {
+            flex-basis: 650px;
+            height: 650px;
+        }
+        @include breakpoint(1184) {
+            flex-basis: calc(100% - 395px);
+            height: 600px;
+        }
     }
     &__line {
         width: 660px;
@@ -132,6 +273,15 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        @include breakpoint(1344) {
+            width: 600px;
+            height: 600px;
+        }
+        @include breakpoint(1184) {
+            border: none;
+            width: 580px;
+            height: 580px;
+        }
     }
     &__image {
         width: 92%;
@@ -170,6 +320,9 @@ body {
         &_1 {
             top: 40px;
             left: 62px;
+            @include breakpoint(1344) {
+                top: 18px;
+            }
             &::before {
                 bottom: 12px;
                 right: -34px;
@@ -178,6 +331,9 @@ body {
         &_2 {
             top: 186px;
             right: 9px;
+            @include breakpoint(1344) {
+                top: 95px;
+            }
             &::before {
                 top: 22px;
                 left: -26px;
@@ -186,6 +342,9 @@ body {
         &_3 {
             bottom: -44px;
             right: 248px;
+            @include breakpoint(1344) {
+                bottom: -36px;
+            }
             &::before {
                 bottom: 57px;
                 right: 31px;
@@ -243,6 +402,9 @@ body {
     font-weight: 700;
     font-size: 8rem;
     line-height: 1;
+    @include breakpoint(1280) {
+        font-size: 7rem;
+    }
     &__span {
         font-style: italic;
     }
@@ -256,9 +418,15 @@ body {
     line-height: 1.5;
     &_size-s {
         font-size: 1.8rem;
+        @include breakpoint(1280) {
+            font-size: 1.6rem;
+        }
     }
     &_size-m {
         font-size: 2.4rem;
+        @include breakpoint(1280) {
+            font-size: 2.2rem;
+        }
     }
 }
 .link {
@@ -272,6 +440,9 @@ body {
     display: inline-block;
     cursor: pointer;
     transition: .2s;
+    @include breakpoint(1184) {
+        font-size: 1.4rem;
+    }
     &_min {
         font-size: 1.4rem;
         padding: 2rem 3.4rem;
@@ -864,23 +1035,20 @@ body {
         }
     }
 }
+footer {
+    padding-top: 7.4rem;
+    padding-bottom: 8.2rem;
+}
 .footer {
     background-image: url(../images/background/footer.png);
     background-size: cover;
     background-position-x: center;
     background-repeat: no-repeat;
-    padding-bottom: 7rem;
     &__box {
         display: flex;
-        align-items: center;
         justify-content: space-between;
-        margin-top: 7.4rem;
-        margin-bottom: 5.4rem;
-        & .logo {
-            transform: scale(1.5);
-            margin-left: 3.5rem;
-            margin-bottom: 10rem;
-        }
+        font-size: 1.8rem;
+        margin-bottom: 5.8rem;
     }
     &__text {
         display: flex;
@@ -910,22 +1078,23 @@ body {
         flex-basis: 220px;
     }
     &__item {
-        margin-bottom: 3rem;
-        letter-spacing: 1.3px;
+        margin-bottom: 2.7rem;
+        letter-spacing: .2px;
     }
-    &__list {
-        margin-bottom: 2.2rem;
+    &__info {
+        display: flex;
+        justify-content: space-between;
+        flex-basis: 66.4%;
     }
     &__link {
         color: $green;
-        font-size: 1.8rem;
         transition: .2s;
         &:hover {
             color: $orange;
         }
     }
     &__tel {
-        font-size: 2.6rem;
+        font-size: 2.7rem;
         color: $green;
         margin-bottom: 3.5rem;
         transition: .2s;
