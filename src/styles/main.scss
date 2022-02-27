@@ -241,8 +241,11 @@ body {
     background-position-x: center;
     background-repeat: no-repeat;
     position: relative;
-    padding-bottom: 187px;
+    padding-bottom: 100px;
     z-index: 0;
+    @include breakpoint(768) {
+        padding-bottom: 0;
+    }
     &__item {
         margin-left: 12.5rem;
         max-width: 378px;
@@ -251,7 +254,7 @@ body {
             margin-left: 8rem;
         }
         @include breakpoint(768) {
-            margin: 3rem auto;
+            margin: 3rem auto 0;
             max-width: 100%;
         }
     }
@@ -266,6 +269,9 @@ body {
         justify-content: space-between;
         align-items: center;
         gap: 30px;
+        @include breakpoint(1344) {
+            padding-bottom: 40px;
+        }
         @include breakpoint(1184) {
             padding-top: 3rem;
             padding-bottom: 5rem;
@@ -329,8 +335,10 @@ body {
             display: none;
             @include breakpoint(768) {
                 display: block;
+                border-radius: 100%;
                 max-width: 300px;
                 margin: 3rem auto 0;
+                animation: shadow 3.7s linear infinite;
             }
         }
     }
@@ -343,6 +351,11 @@ body {
             flex-basis: 100%;
             margin-top: 0;
         }
+    }
+    &__exclamation::after {
+        content: '!';
+        font-weight: 400;
+        font-style: normal;
     }
     &__btn {
         font-family: $font-jost;
@@ -371,7 +384,7 @@ body {
 
         }
         &_1 {
-            top: 40px;
+            top: 43px;
             left: 62px;
             @include breakpoint(1344) {
                 top: 18px;
@@ -389,7 +402,7 @@ body {
         }
         &_2 {
             top: 186px;
-            right: 9px;
+            right: 0;
             @include breakpoint(1344) {
                 top: 95px;
             }
@@ -405,7 +418,7 @@ body {
             }
         }
         &_3 {
-            bottom: -44px;
+            bottom: -50px;
             right: 248px;
             @include breakpoint(1344) {
                 bottom: -36px;
@@ -434,7 +447,13 @@ body {
     &__tomato {
         width: 10.8rem;
         right: 122px;
-        bottom: 124px;
+        bottom: 38px;
+        @include breakpoint(864) {
+            width: 9rem;
+            top: 90px;
+            right: inherit;
+            bottom: inherit;
+        }
     }
     &__avocado {
         width: 17.7rem;
@@ -450,20 +469,34 @@ body {
         width: 8rem;
         top: 0;
         left: 687px;
+        @include breakpoint(768) {
+            top: inherit;
+            left: inherit;
+            right: -20px;
+            bottom: 140px;
+            transform: rotate(90deg);
+        }
     }
     &__pepper {
         width: 8.1rem;
         top: 395px;
         left: 40px;
-        @include breakpoint(960) {
-            bottom: 200px;
+        @include breakpoint(1728) {
+            top: 460px;
             left: -10px;
+        }
+        @include breakpoint(864) {
+            width: 7.5rem;
+            top: 350px;
         }
     }
     &__beans {
         width: 12rem;
-        bottom: 170px;
+        bottom: 84px;
         left: -15px;
+        @include breakpoint(864) {
+            display: none;
+        }
     }
 }
 @keyframes shadow {
@@ -475,6 +508,19 @@ body {
     }
     100% {
         box-shadow: 0 0 0 0 rgb($green, .5);
+    }
+}
+@include breakpoint(768) {
+    @keyframes shadow {
+        0% {
+            box-shadow: 0 0 0 0 rgb($green, .5);
+        }
+        50% {
+            box-shadow: 10px 10px 15px 0 rgb($green, .5);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgb($green, .5);
+        }
     }
 }
 .title {
@@ -538,8 +584,12 @@ body {
     background-size: cover;
     background-position-x: center;
     background-repeat: no-repeat;
-    padding-top: 1rem;
+    padding-top: 9.7rem;
     padding-bottom: 16.3rem;
+    @include breakpoint(1280) {
+        padding-top: .5rem;
+        padding-bottom: 6rem;
+    }
     &__text {
         margin-top: 5.6rem;
         max-width: 700px;
@@ -576,6 +626,7 @@ body {
             justify-content: flex-end;
             background-size: contain;
             padding: 3.5rem 3.7rem;
+            overflow: hidden;
             @include breakpoint(1184) {
                 height: 400px;
             }
@@ -725,7 +776,7 @@ body {
 }
 .swiper-pagination-bullet-active {
     background-color: $orange;
-    border: 1px solid $orange;
+    border: 5px solid $orange;
 }
 .counter {
     display: flex;
@@ -747,8 +798,8 @@ body {
             width: 40px;
             height: 40px;
             @include breakpoint(1344) {
-                width: 30px;
-                height: 30px;
+                width: 38px;
+                height: 38px;
             }
         }
     }
@@ -782,7 +833,10 @@ body {
     background-size: cover;
     background-position-x: center;
     background-repeat: no-repeat;
-    padding-bottom: 10rem;
+    padding-bottom: 14rem;
+    @include breakpoint(768) {
+        padding-bottom: 3rem;
+    }
     &__box {
         display: flex;
         justify-content: space-between;
@@ -853,10 +907,16 @@ body {
     background-size: cover;
     background-position-x: center;
     background-repeat: no-repeat;
-    padding-top: 7rem;
+    padding-top: 3rem;
     padding-bottom: 19rem;
+    @include breakpoint(768) {
+        padding-bottom: 6rem;
+    }
     &__text {
         margin-top: 3.8rem;
+        @include breakpoint(768) {
+            margin-top: 3rem;
+        }
     }
 }
 .category {
@@ -900,6 +960,7 @@ body {
         }
         @include breakpoint(768) {
             grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
         }
         @include breakpoint(576) {
             grid-template-columns: repeat(1, 1fr);
@@ -955,6 +1016,9 @@ body {
     }
     &__text {
         margin-top: 3.6rem;
+        @include breakpoint(768) {
+            margin-top: 3rem;
+        }
     }
     &__list {
         margin-top: 8.5rem;
@@ -962,6 +1026,10 @@ body {
         @include breakpoint(1280) {
             overflow: hidden;
             height: 70px;
+        }
+        @include breakpoint(768) {
+            margin-top: 4.5rem;
+            margin-bottom: 2rem;
         }
     }
     &__btn {
@@ -976,6 +1044,9 @@ body {
         margin: 6.2rem auto 0;
         cursor: pointer;
         transition: .2s;
+        @include breakpoint(768) {
+            margin-top: 4.5rem;
+        }
         &:hover {
             opacity: 1;
         }
@@ -997,6 +1068,9 @@ body {
     background-position-x: center;
     background-repeat: no-repeat;
     padding: 13.8rem 0;
+    @include breakpoint(768) {
+        padding: 6rem 0 6rem;
+    }
     &__box {
         display: flex;
         font-size: calc(12px + 4.2 * ((100vw - 320px) / (1440 - 320))); /*18*/
@@ -1009,7 +1083,7 @@ body {
         }
         @include breakpoint(768) {
             flex-direction: column;
-            margin: 3rem auto;
+            margin: 4rem auto 0;
             max-width: 100%;
         }
     }
@@ -1028,6 +1102,7 @@ body {
         @include breakpoint(768) {
             flex-basis: 100%;
             text-align: center;
+            margin-top: 1rem;
         }
     }
     &__link {
@@ -1102,6 +1177,9 @@ body {
 .contact {
     padding: 3.5rem 0 15.7rem;
     border-bottom: 1px solid #e2e3df;
+    @include breakpoint(768) {
+        padding: 0 0 6rem;
+    }
     &-box {
         display: flex;
         justify-content: space-between;
@@ -1122,7 +1200,7 @@ body {
                 margin-left: 8rem;
             }
             @include breakpoint(768) {
-                margin: 3rem auto;
+                margin: 4rem auto 6rem;
                 max-width: 100%;
                 text-align: center;
             }
@@ -1137,10 +1215,14 @@ body {
             @include breakpoint(768) {
                 display: flex;
                 justify-content: space-around;
+                margin-top: 3rem;
             }
         }
         &__form {
             flex-basis: 590px;
+            @include breakpoint(768) {
+                flex-basis: 100%;
+            }
         }
         &__link {
             font-weight: 500;
@@ -1230,6 +1312,10 @@ body {
 footer {
     padding-top: 7.4rem;
     padding-bottom: 8.2rem;
+    @include breakpoint(768) {
+        padding-top: 5rem;
+        padding-bottom: 4rem;
+    }
 }
 .footer {
     background-image: url(../images/background/footer.png);
