@@ -71,15 +71,17 @@ body {
             flex-grow: 0;
             margin-left: 0;
         }
-        @include breakpoint(864) {
-            display: none;
-        }
     }
     &__nav {
         display: flex;
         gap: 4.7rem;
         @include breakpoint(1184) {
             gap: 2.7rem;
+        }
+        @include breakpoint(864) {
+            flex-direction: column;
+            background-color: #fdfefa;
+            padding: 30px;
         }
     }
     &__link {
@@ -172,9 +174,11 @@ body {
             }
         }
     }
-    &_menu {
+    &-hamburger {
+        display: none;
         @include breakpoint(864) {
             display: block;
+            cursor: pointer;
             width: 38px;
             height: 38px;
             border-radius: 100%;
@@ -211,6 +215,57 @@ body {
         }
     }
 }
+/*=================================================================================================*/
+.hamburger_mobile {
+    display: none;
+    @include breakpoint(864) {
+        display: block;
+    }
+}
+#modal {
+    max-width: 100%;
+    height: 100%;
+    background: rgba($color: #000000, $alpha: .6);
+    text-align: center;
+    position: absolute;
+    top: -120%;
+    left: 0;
+    right: 0;
+    transition: 0.7s;
+    padding: 3% 0 0;
+    box-sizing: border-box;
+}
+.burger_close {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: absolute;
+    top: 2%;
+    right: 4%;
+    transform: scale(1);
+    transition: .2s ease transform;
+    &:hover {
+        transform: scale(1.2);
+    }
+    &::before, &::after {
+        position: absolute;
+        left: 12px;
+        content: '';
+        height: 25px;
+        width: 2.49px;
+        background-color: #000;
+        transform: scale(1);
+    }
+    &::before {
+        transform: rotate(45deg);
+    }
+    &::after {
+        transform: rotate(-45deg);
+    }
+}
+/*=================================================================================================*/
 .logo {
     display: block;
     background-image: url(../images/logo.svg);
@@ -243,6 +298,12 @@ body {
     position: relative;
     padding-bottom: 100px;
     z-index: 0;
+    /*=============================================================================================*/
+    overflow: hidden;
+    /*=============================================================================================*/
+    @include breakpoint(1344) {
+        background-size: contain;
+    }
     @include breakpoint(768) {
         padding-bottom: 0;
     }
@@ -330,7 +391,11 @@ body {
     &__image {
         width: 92%;
         border-radius: 100%;
+        /*=============================================================================================*/
+        /*
         animation: shadow 3.7s linear infinite;
+        */
+        /*=============================================================================================*/
         &-mobi {
             display: none;
             @include breakpoint(768) {
@@ -338,7 +403,11 @@ body {
                 border-radius: 100%;
                 max-width: 300px;
                 margin: 3rem auto 0;
+                /*=============================================================================================*/
+                /*
                 animation: shadow 3.7s linear infinite;
+        */
+        /*=============================================================================================*/
             }
         }
     }
@@ -464,12 +533,16 @@ body {
             top: 72px;
             right: -80px;
         }
+        @include breakpoint(864) {
+            width: 13rem;
+            top: 125px;
+        }
     }
     &__cucumber {
         width: 8rem;
         top: 0;
         left: 687px;
-        @include breakpoint(768) {
+        @include breakpoint(864) {
             top: inherit;
             left: inherit;
             right: -20px;
@@ -565,14 +638,20 @@ body {
     cursor: pointer;
     transition: .2s;
     @include breakpoint(1344) {
-        padding: 2.2rem;
+        flex-grow: 1;
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
     }
     &_min {
         font-size: calc(10px + 2.8 * ((100vw - 320px) / (1440 - 320))); /*14*/
-        padding: 2rem 3.4rem;
+        padding: 2rem 2.8rem;
         box-shadow: 0 1rem 1.1rem .17rem rgba(207, 92, 13, .2);
         @include breakpoint(1344) {
-            padding: 1.8rem;
+            flex-grow: 1;
+            text-align: center;
+            padding-left: 0;
+            padding-right: 0;
         }
     }
     &:hover {
@@ -643,6 +722,9 @@ body {
                 opacity: 0;
                 transition: .3s linear;
             }
+        }
+        &_steaks {
+            background-size: cover;
         }
         &__hover {
             opacity: 0;
@@ -735,6 +817,7 @@ body {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 5%;
         }
     }
     &-pagination {
@@ -771,12 +854,12 @@ body {
     justify-content: center;
 }
 .swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
 }
 .swiper-pagination-bullet-active {
     background-color: $orange;
-    border: 5px solid $orange;
+    border: 6px solid $orange;
 }
 .counter {
     display: flex;
@@ -955,7 +1038,7 @@ body {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 20px 15px;
-        @include breakpoint(1184) {
+        @include breakpoint(1280) {
             grid-template-columns: repeat(3, 1fr);
         }
         @include breakpoint(768) {
@@ -1012,6 +1095,7 @@ body {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 5%;
         }
     }
     &__text {
@@ -1318,10 +1402,12 @@ footer {
     }
 }
 .footer {
+    /*========================================================================================*/
     background-image: url(../images/background/footer.png);
     background-size: cover;
     background-position-x: center;
     background-repeat: no-repeat;
+    /*========================================================================================*/
     &__box {
         display: flex;
         justify-content: space-between;
