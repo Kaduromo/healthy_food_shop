@@ -1259,6 +1259,10 @@ body {
     }
 }
 .contact {
+    background-image: url(../images/background/footer.png);
+    background-size: cover;
+    background-position-x: center;
+    background-repeat: no-repeat;
     padding: 3.5rem 0 15.7rem;
     border-bottom: 1px solid #e2e3df;
     @include breakpoint(768) {
@@ -1394,6 +1398,10 @@ body {
     }
 }
 footer {
+    background-image: url(../images/background/footer.png);
+    background-size: cover;
+    background-position-x: center;
+    background-repeat: no-repeat;
     padding-top: 7.4rem;
     padding-bottom: 8.2rem;
     @include breakpoint(768) {
@@ -1402,12 +1410,6 @@ footer {
     }
 }
 .footer {
-    /*========================================================================================*/
-    background-image: url(../images/background/footer.png);
-    background-size: cover;
-    background-position-x: center;
-    background-repeat: no-repeat;
-    /*========================================================================================*/
     &__box {
         display: flex;
         justify-content: space-between;
