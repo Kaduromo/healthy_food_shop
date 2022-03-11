@@ -298,9 +298,7 @@ body {
     position: relative;
     padding-bottom: 100px;
     z-index: 0;
-    /*=============================================================================================*/
-    overflow: hidden;
-    /*=============================================================================================*/
+    overflow-x: hidden;
     @include breakpoint(1344) {
         background-size: contain;
     }
@@ -637,22 +635,10 @@ body {
     display: inline-block;
     cursor: pointer;
     transition: .2s;
-    @include breakpoint(1344) {
-        flex-grow: 1;
-        text-align: center;
-        padding-left: 0;
-        padding-right: 0;
-    }
     &_min {
         font-size: calc(10px + 2.8 * ((100vw - 320px) / (1440 - 320))); /*14*/
         padding: 2rem 2.8rem;
         box-shadow: 0 1rem 1.1rem .17rem rgba(207, 92, 13, .2);
-        @include breakpoint(1344) {
-            flex-grow: 1;
-            text-align: center;
-            padding-left: 0;
-            padding-right: 0;
-        }
     }
     &:hover {
         background-color: $orange_hover;
@@ -677,7 +663,9 @@ body {
 .slider {
     overflow: hidden;
     padding-top: 100px;
+    /*====================================================================================================================*/
     @include breakpoint(1184) {
+        //min-width: 450px;
         min-width: 450px;
         margin: 0 auto;
         padding-top: 5rem;
@@ -764,6 +752,10 @@ body {
             min-height: 55px;
             max-width: 290px;
             line-height: 1.5;
+            @include breakpoint(768) {
+                margin-bottom: 1.5rem;
+                min-height: 45px;
+            }
         }
         &__price {
             font-size: calc(12px + 8.4 * ((100vw - 320px) / (1440 - 320))); /*24*/
@@ -806,6 +798,9 @@ body {
             width: 100%;
             height: 300px;
             text-align: center;
+            @include breakpoint(768) {
+                height: 36.2vw;
+            }
         }
         &__image {
             height: 100%;
@@ -854,12 +849,19 @@ body {
     justify-content: center;
 }
 .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
+    width: calc(8px + 7.54 * ((100vw - 360px) / (1000 - 360)));
+    height: calc(8px + 7.54 * ((100vw - 360px) / (1000 - 360)));
+    @include breakpoint(360) {
+        width: 8px;
+        height: 8px;
+    }
 }
 .swiper-pagination-bullet-active {
     background-color: $orange;
-    border: 6px solid $orange;
+    border: calc(5px + 4 * ((100vw - 360px) / (1000 - 360))) solid $orange;
+    @include breakpoint(360) {
+        border: 5px solid $orange;
+    }
 }
 .counter {
     display: flex;
@@ -910,6 +912,16 @@ body {
             width: 33px;
         }
     }
+    & + .link {
+        
+        flex-grow: 1;
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    @include breakpoint(768) {
+        display: none;
+    }
 }
 .about {
     background-image: url(../images/background/about.png);
@@ -925,6 +937,9 @@ body {
         justify-content: space-between;
         align-items: center;
         margin-top: 6.7rem;
+        @include breakpoint(1280) {
+            gap: 1.4vw;
+        }
         @include breakpoint(768) {
             flex-direction: column;
             margin-top: 0;
@@ -935,7 +950,6 @@ body {
         flex-basis: 580px;
         @include breakpoint(1280) {
             margin-left: 8rem;
-            padding-right: 4vw;
         }
         @include breakpoint(768) {
             margin: 4rem auto;
@@ -1007,13 +1021,30 @@ body {
     align-items: center;
     gap: 2rem;
     @include breakpoint(1280) {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    @include breakpoint(576) {
+        flex-wrap: nowrap;
+        justify-content: inherit;
+        flex-direction: row;
         overflow-x: scroll;
         overflow-y: hidden;
         padding-bottom: 50px;
+        gap: 1.2rem;
     }
     &__item {
         min-width: 230px;
         text-align: center;
+        @include breakpoint(1280) {
+            min-width: 28vw;
+        }
+        @include breakpoint(768) {
+            min-width: 155px;
+        }
+        @include breakpoint(360) {
+            min-width: 112px;
+        }
     }
     &__link {
         padding: 2.4rem 0;
@@ -1026,6 +1057,9 @@ body {
         &:hover {
             border: 1px solid $orange;
             color: $orange;
+        }
+        @include breakpoint(360) {
+            padding: 1.5rem 0;
         }
     }
 }
@@ -1053,11 +1087,14 @@ body {
             border-radius: 2rem;
             padding: 3rem 2rem 3.8rem 3rem;
             transition: .2s;
+            &:hover {
+                box-shadow: 0 0 0 2px rgba($green, .4) inset;
+            }
             @include breakpoint(1344) {
                 padding: 2.5rem 2rem 3rem;
             }
-            &:hover {
-                box-shadow: 0 0 0 2px rgba($green, .4) inset;
+            @include breakpoint(576) {
+                text-align: center;
             }
         }
         &__cover {
@@ -1066,6 +1103,9 @@ body {
             width: 100%;
             height: 204px;
             text-align: center;
+            @include breakpoint(768) {
+                height: 21.5vw;
+            }
         }
         &__image {
             width: 100%;
@@ -1083,9 +1123,13 @@ body {
             font-size: calc(10px + 4.2 * ((100vw - 320px) / (1440 - 320))); /*16*/
             color: rgba($green, .7);
             margin-top: 1.8rem;
-            min-height: 61px;
+            min-height: 60px;
             max-width: 300px;
             line-height: 1.5;
+            @include breakpoint(576) {
+                margin: 1.8rem auto 0;
+                min-height: 40px;
+            }
         }
         &__price {
             font-size: calc(12px + 8.4 * ((100vw - 320px) / (1440 - 320))); /*24*/
@@ -1107,13 +1151,18 @@ body {
     &__list {
         margin-top: 8.5rem;
         margin-bottom: 5rem;
-        @include breakpoint(1280) {
-            overflow: hidden;
-            height: 70px;
-        }
         @include breakpoint(768) {
             margin-top: 4.5rem;
             margin-bottom: 2rem;
+        }
+        @include breakpoint(576) {
+            overflow: hidden;
+            min-height: 65px;
+            max-height: 75px;
+        }
+        @include breakpoint(360) {
+            min-height: 40x;
+            max-height: 50px;
         }
     }
     &__btn {
@@ -1168,14 +1217,14 @@ body {
         @include breakpoint(768) {
             flex-direction: column;
             margin: 4rem auto 0;
-            max-width: 100%;
+            max-width: 490px;
+            text-align: center;
         }
     }
     &__text {
         flex-basis: 44%;
         @include breakpoint(768) {
             flex-basis: 100%;
-            text-align: center;
         }
     }
     &__description {
@@ -1185,7 +1234,6 @@ body {
         flex-basis: 37%;
         @include breakpoint(768) {
             flex-basis: 100%;
-            text-align: center;
             margin-top: 1rem;
         }
     }
@@ -1272,7 +1320,7 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 3%;
+        gap: 5%;
         @include breakpoint(768) {
             flex-direction: column;
         }
@@ -1304,12 +1352,15 @@ body {
                 display: flex;
                 justify-content: space-around;
                 margin-top: 3rem;
+                gap: 2%;
+                flex-wrap: wrap;
             }
         }
         &__form {
             flex-basis: 590px;
             @include breakpoint(768) {
-                flex-basis: 100%;
+                flex-basis: auto;
+                flex-grow: 1;
             }
         }
         &__link {
@@ -1331,6 +1382,9 @@ body {
             &:hover {
                 color: $orange;
             }
+            @include breakpoint(576) {
+                gap: 1.5rem;
+            }
         }
         &__tel {
             &::before {
@@ -1350,6 +1404,12 @@ body {
     border: 2px solid rgba($green, .4);
     padding: 3.7rem 5.8rem 4rem;
     border-radius: 2rem;
+    @include breakpoint(768) {
+        padding: 3.5rem 4.5rem;
+    }
+    @include breakpoint(576) {
+        padding: 2.5rem 1.5rem 2.8rem;
+    }
     &__title {
         font-size: calc(22px + 5.6 * ((100vw - 320px) / (1440 - 320))); /*30*/
         font-family: $font-cormorant;
@@ -1463,7 +1523,7 @@ footer {
         justify-content: space-between;
         flex-basis: 66.4%;
         @include breakpoint(960) {
-            flex-basis: 78.5%;
+            flex-basis: 75%;
         }
         @include breakpoint(768) {
             flex-direction: column;
@@ -1472,7 +1532,11 @@ footer {
         }
     }
     &__list:nth-child(1) {
+        @include breakpoint(960) {
+            flex-basis: 120px;
+        }
         @include breakpoint(768) {
+            flex-basis: auto;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -1500,6 +1564,9 @@ footer {
         &:hover {
             color: $orange;
         }
+        @include breakpoint(768) {
+            font-size: 30px;
+        }
     }
     &__email {
         font-size: calc(12px + 4.2 * ((100vw - 320px) / (1440 - 320))); /*18*/
@@ -1519,7 +1586,6 @@ footer {
             display: flex;
             opacity: .8;
             transform: scale(1);
-            transition: .2s;
             &::before {
                 content: '';
                 width: 50px;
@@ -1528,23 +1594,18 @@ footer {
                 background-position: center center;
                 background-repeat: no-repeat;
                 background-size: 25px;
-                border: 1px solid rgba($green, .4);
+                border: 2px solid $green;
                 border-radius: 100%;
-                opacity: .8;
             }
             &:hover {
                 opacity: 1;
                 transform: scale(1.1);
-                &::before {
-                    opacity: 1;
-                }
             }
         }
         &__inst {
             display: flex;
             opacity: .8;
             transform: scale(1);
-            transition: .2s;
             &::before {
                 content: '';
                 width: 50px;
@@ -1553,22 +1614,18 @@ footer {
                 background-position: center center;
                 background-repeat: no-repeat;
                 background-size: 20px;
-                border: 1px solid rgba($green, .4);
+                border: 2px solid $green;
                 border-radius: 100%;
             }
             &:hover {
                 opacity: 1;
                 transform: scale(1.1);
-                &::before {
-                    opacity: 1;
-                }
             }
         }
         &__fb {
             display: flex;
             opacity: .8;
             transform: scale(1);
-            transition: .2s;
             &::before {
                 content: '';
                 width: 50px;
@@ -1577,15 +1634,12 @@ footer {
                 background-position: center center;
                 background-repeat: no-repeat;
                 background-size: 20px;
-                border: 1px solid rgba($green, .4);
+                border: 2px solid $green;
                 border-radius: 100%;
             }
             &:hover {
                 opacity: 1;
                 transform: scale(1.1);
-                &::before {
-                    opacity: 1;
-                }
             }
         }
     }
