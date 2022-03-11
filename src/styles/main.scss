@@ -397,9 +397,7 @@ body {
         width: 92%;
         border-radius: 100%;
         /*=============================================================================================*/
-        /*
         animation: shadow 3.7s linear infinite;
-        */
         /*=============================================================================================*/
         @include breakpoint(768) {
             display: block;
@@ -521,13 +519,14 @@ body {
         bottom: 38px;
         @include breakpoint(864) {
             width: 9rem;
-            top: 70px;
+            top: 100px;
             right: inherit;
             bottom: inherit;
             left: -10px;
         }
         @include breakpoint(576) {
             width: 7rem;
+            top: 70px;
             left: -17px;
         }
     }
@@ -659,11 +658,11 @@ body {
     text-transform: uppercase;
     padding: 2.5rem 4.3rem;
     background-color: $orange;
-    box-shadow: 0px 1rem 1.1rem .2rem rgba(207, 92, 13, 0.2);
     border-radius: 3.8rem;
     display: inline-block;
     cursor: pointer;
     transition: .2s;
+    animation: ShadowIcon 4s linear infinite;
     @include breakpoint(1344) {
         font-size: calc(12px + 2.8 * ((100vw - 320px) / (1440 - 320))); //16
     }
@@ -683,6 +682,17 @@ body {
     }
     &:hover {
         background-color: $orange_hover;
+    }
+}
+@keyframes ShadowIcon {
+    0% {
+        box-shadow: 0px 1rem 1rem .2rem rgba(207, 92, 13, 0.2);
+    }
+    50% {
+        box-shadow: 0px 1rem 1rem .2rem rgba(207, 92, 13, 0.8);
+    }
+    100% {
+        box-shadow: 0px 1rem 1rem .2rem rgba(207, 92, 13, 0.2);
     }
 }
 .offer {
@@ -1168,12 +1178,12 @@ body {
         border: 1px solid rgba($green, .5);
         color: rgba($green, .5);
         font-size: 1.8rem;
-        @include breakpoint(1344) {
-            font-size: calc(10px + 5.6 * ((100vw - 320px) / (1440 - 320))); //18
-        }
         border-radius: 4rem;
         display: block;
         transition: .2s;
+        @include breakpoint(1344) {
+            font-size: calc(10px + 5.6 * ((100vw - 320px) / (1440 - 320))); //18
+        }
         &:hover {
             border: 1px solid $orange;
             color: $orange;
