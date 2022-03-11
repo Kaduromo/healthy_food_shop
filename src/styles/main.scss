@@ -64,6 +64,10 @@ body {
     padding-top: 4rem;
     padding-bottom: 5rem;
     gap: 4%;
+    @include breakpoint(576) {
+        padding-top: 1.8rem;
+        padding-bottom: 2rem;
+    }
     &_navigation {
         flex-grow: 1;
         margin-left: 6.5rem;
@@ -85,11 +89,14 @@ body {
         }
     }
     &__link {
-        font-size: calc(14px + 1.4 * ((100vw - 320px) / (1440 - 320))); /*16*/
+        font-size: 1.6rem;
         color: $green;
         transition: .2s;
         &:hover {
             color: $orange;
+        }
+        @include breakpoint(1344) {
+            font-size: calc(14px + 1.4 * ((100vw - 320px) / (1440 - 320))); //16
         }
     }
     &__tel {
@@ -148,7 +155,7 @@ body {
         @include breakpoint(1184) {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1rem;
         }
     }
     &__phone, &_menu {
@@ -394,19 +401,14 @@ body {
         animation: shadow 3.7s linear infinite;
         */
         /*=============================================================================================*/
-        &-mobi {
-            display: none;
-            @include breakpoint(768) {
-                display: block;
-                border-radius: 100%;
-                max-width: 300px;
-                margin: 3rem auto 0;
-                /*=============================================================================================*/
-                /*
-                animation: shadow 3.7s linear infinite;
-        */
-        /*=============================================================================================*/
-            }
+        @include breakpoint(768) {
+            display: block;
+            border-radius: 100%;
+            max-width: 300px;
+            margin: 3rem auto 0;
+        }
+        @include breakpoint(576) {
+            max-width: 220px;
         }
     }
     &__text {
@@ -426,13 +428,16 @@ body {
     }
     &__btn {
         font-family: $font-jost;
-        font-size: calc(14px + 1.4 * ((100vw - 320px) / (1440 - 320)));
+        font-size: 1.6rem;
         background-color: transparent;
         color: $green;
         text-align: left;
         position: absolute;
         cursor: pointer;
         transition: .2s;
+        @include breakpoint(1344) {
+            font-size: calc(14px + 1.4 * ((100vw - 320px) / (1440 - 320))); //16
+        }
         &:hover {
             &::before {
                 background-color: $orange;
@@ -448,7 +453,6 @@ body {
             border-radius: 100%;
             position: absolute;
             transition: .2s;
-
         }
         &_1 {
             top: 43px;
@@ -517,9 +521,14 @@ body {
         bottom: 38px;
         @include breakpoint(864) {
             width: 9rem;
-            top: 90px;
+            top: 70px;
             right: inherit;
             bottom: inherit;
+            left: -10px;
+        }
+        @include breakpoint(576) {
+            width: 7rem;
+            left: -17px;
         }
     }
     &__avocado {
@@ -532,8 +541,11 @@ body {
             right: -80px;
         }
         @include breakpoint(864) {
-            width: 13rem;
+            width: 12rem;
             top: 125px;
+        }
+        @include breakpoint(576) {
+            top: 65px;
         }
     }
     &__cucumber {
@@ -543,9 +555,13 @@ body {
         @include breakpoint(864) {
             top: inherit;
             left: inherit;
-            right: -20px;
+            right: -15px;
             bottom: 140px;
             transform: rotate(90deg);
+        }
+        @include breakpoint(576) {
+            width: 6rem;
+            bottom: 120px;
         }
     }
     &__pepper {
@@ -559,6 +575,10 @@ body {
         @include breakpoint(864) {
             width: 7.5rem;
             top: 350px;
+        }
+        @include breakpoint(576) {
+            width: 4.5rem;
+            top: 255px;
         }
     }
     &__beans {
@@ -598,7 +618,10 @@ body {
     font-family: $font-cormorant;
     font-weight: 700;
     line-height: 1;
-    font-size: calc(30px + 35 * ((100vw - 320px) / (1440 - 320))); /*18*/
+    font-size: 8rem;
+    @include breakpoint(1344) {
+        font-size: calc(30px + 35 * ((100vw - 320px) / (1440 - 320))); //80
+    }
     @include breakpoint(768) {
         text-align: center;
     }
@@ -617,14 +640,20 @@ body {
         text-align: center;
     }
     &_size-s {
-        font-size: calc(12px + 4.2 * ((100vw - 320px) / (1440 - 320))); /*18*/
+        font-size: 1.8rem;
+        @include breakpoint(1344) {
+            font-size: calc(12px + 4.2 * ((100vw - 320px) / (1440 - 320))); //18
+        }
     }
     &_size-m {
-        font-size: calc(12px + 8.4 * ((100vw - 320px) / (1440 - 320))); /*24*/
+        font-size: 2.4rem;
+        @include breakpoint(1344) {
+            font-size: calc(12px + 8.4 * ((100vw - 320px) / (1440 - 320))); //24
+        }
     }
 }
 .link {
-    font-size: calc(12px + 2.8 * ((100vw - 320px) / (1440 - 320))); /*16*/
+    font-size: 1.6rem;
     color: #fff;
     letter-spacing: 0.11rem;
     text-transform: uppercase;
@@ -635,10 +664,22 @@ body {
     display: inline-block;
     cursor: pointer;
     transition: .2s;
+    @include breakpoint(1344) {
+        font-size: calc(12px + 2.8 * ((100vw - 320px) / (1440 - 320))); //16
+    }
+    @include breakpoint(576) {
+        padding: 1.9rem 2rem;
+    }
     &_min {
-        font-size: calc(10px + 2.8 * ((100vw - 320px) / (1440 - 320))); /*14*/
+        font-size: 1.4rem;
         padding: 2rem 2.8rem;
         box-shadow: 0 1rem 1.1rem .17rem rgba(207, 92, 13, .2);
+        @include breakpoint(1344) {
+            font-size: calc(10px + 2.8 * ((100vw - 320px) / (1440 - 320))); //14
+        }
+        @include breakpoint(576) {
+            padding: 1.6rem 2rem;
+        }
     }
     &:hover {
         background-color: $orange_hover;
@@ -665,11 +706,14 @@ body {
     padding-top: 100px;
     /*====================================================================================================================*/
     @include breakpoint(1184) {
-        //min-width: 450px;
         min-width: 450px;
         margin: 0 auto;
         padding-top: 5rem;
-        padding-bottom: 3rem;
+        padding-bottom: 5rem;
+    }
+    @include breakpoint(576) {
+        max-width: 230px;
+        min-width: inherit;
     }
 }
 .swiper {
@@ -684,7 +728,10 @@ body {
         z-index: 0;
         transition: .2s linear;
         @include breakpoint(1184) {
-            padding: 2rem;
+            padding: 2rem 2.5rem;
+        }
+        @include breakpoint(576) {
+            text-align: center;
         }
         &_white {
             height: 510px;
@@ -696,6 +743,10 @@ body {
             overflow: hidden;
             @include breakpoint(1184) {
                 height: 400px;
+            }
+            @include breakpoint(576) {
+                height: 260px;
+                padding: 2.2rem 1.7rem;
             }
             &::after {
                 content: '';
@@ -718,12 +769,20 @@ body {
             opacity: 0;
             height: 0;
             transition: .3s linear;
+            @include breakpoint(576) {
+                height: auto;
+                opacity: 1;
+                margin-top: 1.5rem;
+            }
         }
         &:hover {
             box-shadow: 0 0 0 2px rgba($green, .4) inset;
             .swiper-slide__hover {
                 opacity: 1;
                 height: 233px;
+                @include breakpoint(576) {
+                    height: auto;
+                }
             }
             &::after {
                 opacity: 1;
@@ -731,35 +790,58 @@ body {
         }
         &_milk {
             background-image: url(../images/milk.png);
+            @include breakpoint(576) {
+                background-position: 7px 0;
+                background-size: 70%;
+            }
         }
         &_pasta {
             background-image: url(../images/pasta.png);
+            @include breakpoint(576) {
+                background-position: 7px 0;
+                background-size: 70%;
+            }
         }
         &_steaks {
             background-image: url(../images/steaks.png);
+            @include breakpoint(576) {
+                background-position: 7px 0;
+            }
         }
         &__title {
             font-family: $font-cormorant;
-            font-size: calc(14px + 11.2 * ((100vw - 320px) / (1440 - 320))); /*30*/
+            font-size: 3rem;
             color: $green;
             margin-top: 3rem;
+            @include breakpoint(1344) {
+                font-size: calc(14px + 11.2 * ((100vw - 320px) / (1440 - 320))); //30
+            }
         }
         &__description {
-            font-size: calc(10px + 5.6 * ((100vw - 320px) / (1440 - 320))); /*18*/
+            font-size: 1.8rem;
             color: rgba($green, .7);
             margin-top: 2.6rem;
             margin-bottom: 2.7rem;
             min-height: 55px;
             max-width: 290px;
             line-height: 1.5;
+            @include breakpoint(1344) {
+                font-size: calc(12px + 5.6 * ((100vw - 320px) / (1440 - 320))); //18
+            }
             @include breakpoint(768) {
-                margin-bottom: 1.5rem;
+                margin: 1.5rem auto;
                 min-height: 45px;
             }
         }
         &__price {
-            font-size: calc(12px + 8.4 * ((100vw - 320px) / (1440 - 320))); /*24*/
+            font-size: 2.4rem;
+            @include breakpoint(1344) {
+                font-size: calc(14px + 8.4 * ((100vw - 320px) / (1440 - 320))); //24
+            }
             margin-bottom: 3.2rem;
+            @include breakpoint(576) {
+                margin-bottom: 2rem;
+            }
         }
         &__text {
             color: rgba($green, .7);
@@ -767,6 +849,9 @@ body {
             margin-top: 2.5rem;
             margin-bottom: 3.4rem;
             max-width: 263px;
+            @include breakpoint(576) {
+                display: none;
+            }
         }
         &__link {
             text-transform: uppercase;
@@ -790,6 +875,15 @@ body {
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-position: center;
+                @include breakpoint(576) {
+                    width: 2rem;
+                    height: 2rem;
+                }
+            }
+            @include breakpoint(576) {
+                justify-content: center;
+                gap: 1rem;
+                font-size: 10px;
             }
         }
         &__cover {
@@ -799,7 +893,10 @@ body {
             height: 300px;
             text-align: center;
             @include breakpoint(768) {
-                height: 36.2vw;
+                height: 36vw;
+            }
+            @include breakpoint(576) {
+                height: 26vw;
             }
         }
         &__image {
@@ -843,7 +940,7 @@ body {
     }
 }
 .swiper-horizontal>.swiper-pagination-bullets {
-    bottom: -30px;
+    bottom: -40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -952,17 +1049,23 @@ body {
             margin-left: 8rem;
         }
         @include breakpoint(768) {
-            margin: 4rem auto;
+            margin: 4rem auto 6rem;
             flex-basis: auto;
         }
     }
     &__list {
         font-family: $font-cormorant;
+        font-size: 3rem;
         font-style: italic;
-        font-size: calc(14px + 11.2 * ((100vw - 320px) / (1440 - 320))); /*30*/
         display: flex;
         gap: 4.65vw;
         margin-bottom: 2.2rem;
+        @include breakpoint(1344) {
+            font-size: calc(14px + 11.2 * ((100vw - 320px) / (1440 - 320))); //30
+        }
+        @include breakpoint(576) {
+            gap: 13.5vw;
+        }
     }
     &__item {
         display: flex;
@@ -978,23 +1081,37 @@ body {
             border: 1px solid rgba($green, .4);
             border-radius: 100%;
             margin-bottom: 2rem;
+            @include breakpoint(576) {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 1.5rem;
+            }
         }
         &:nth-child(1) {
             &::before {
                 background-image: url(../images/about-icon-1.svg);
                 background-size: 44px 41px;
+                @include breakpoint(576) {
+                    background-size: 36px 39px;
+                }
             }
         }
         &:nth-child(2) {
             &::before {
                 background-image: url(../images/about-icon-2.svg);
                 background-size: 40px 40px;
+                @include breakpoint(576) {
+                    background-size: 34px 36px;
+                }
             }
         }
         &:nth-child(3) {
             &::before {
                 background-image: url(../images/about-icon-3.svg);
                 background-size: 45px 39px;
+                @include breakpoint(576) {
+                    background-size: 34px;
+                }
             }
         }
     }
@@ -1050,7 +1167,10 @@ body {
         padding: 2.4rem 0;
         border: 1px solid rgba($green, .5);
         color: rgba($green, .5);
-        font-size: calc(10px + 5.6 * ((100vw - 320px) / (1440 - 320))); /*18*/
+        font-size: 1.8rem;
+        @include breakpoint(1344) {
+            font-size: calc(10px + 5.6 * ((100vw - 320px) / (1440 - 320))); //18
+        }
         border-radius: 4rem;
         display: block;
         transition: .2s;
@@ -1079,9 +1199,6 @@ body {
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
         }
-        @include breakpoint(576) {
-            grid-template-columns: repeat(1, 1fr);
-        }
         &__item {
             border: 1px solid rgba($green, .4);
             border-radius: 2rem;
@@ -1095,6 +1212,7 @@ body {
             }
             @include breakpoint(576) {
                 text-align: center;
+                padding: 1rem .5rem;
             }
         }
         &__cover {
@@ -1104,7 +1222,7 @@ body {
             height: 204px;
             text-align: center;
             @include breakpoint(768) {
-                height: 21.5vw;
+                height: 20vw;
             }
         }
         &__image {
@@ -1115,25 +1233,37 @@ body {
         }
         &__title {
             font-family: $font-cormorant;
-            font-size: calc(14px + 11.2 * ((100vw - 320px) / (1440 - 320))); /*30*/
+            font-size: 3rem;
             color: $green;
             margin-top: 1.7rem;
+            @include breakpoint(1344) {
+                font-size: calc(14px + 11.2 * ((100vw - 320px) / (1440 - 320))); //30
+            }
         }
         &__description {
-            font-size: calc(10px + 4.2 * ((100vw - 320px) / (1440 - 320))); /*16*/
+            font-size: 1.6rem;
             color: rgba($green, .7);
             margin-top: 1.8rem;
             min-height: 60px;
             max-width: 300px;
             line-height: 1.5;
+            @include breakpoint(1344) {
+                font-size: calc(10px + 4.2 * ((100vw - 320px) / (1440 - 320))); //16
+            }
             @include breakpoint(576) {
-                margin: 1.8rem auto 0;
-                min-height: 40px;
+                margin: 1.5rem auto 0;
+                min-height: 50px;
             }
         }
         &__price {
-            font-size: calc(12px + 8.4 * ((100vw - 320px) / (1440 - 320))); /*24*/
+            font-size: 2.4rem;
             margin-bottom: 3rem;
+            @include breakpoint(1344) {
+                font-size: calc(12px + 8.4 * ((100vw - 320px) / (1440 - 320))); //24
+            }
+            @include breakpoint(576) {
+                margin-bottom: 1.2rem;
+            }
         }
         &__footer {
             display: flex;
@@ -1161,7 +1291,7 @@ body {
             max-height: 75px;
         }
         @include breakpoint(360) {
-            min-height: 40x;
+            min-height: 40px;
             max-height: 50px;
         }
     }
@@ -1179,6 +1309,7 @@ body {
         transition: .2s;
         @include breakpoint(768) {
             margin-top: 4.5rem;
+            font-size: 1rem;
         }
         &:hover {
             opacity: 1;
@@ -1205,12 +1336,15 @@ body {
         padding: 6rem 0 6rem;
     }
     &__box {
+        font-size: 1.8rem;
         display: flex;
-        font-size: calc(12px + 4.2 * ((100vw - 320px) / (1440 - 320))); /*18*/
         line-height: 1.5;
         margin-top: 7.5rem;
         margin-left: 12.2rem;
         gap: 11%;
+        @include breakpoint(1344) {
+            font-size: calc(12px + 4.2 * ((100vw - 320px) / (1440 - 320))); //18
+        }
         @include breakpoint(1280) {
             margin-left: 8rem;
         }
@@ -1342,12 +1476,18 @@ body {
             }
         }
         &__description {
-            font-size: calc(12px + 4.2 * ((100vw - 320px) / (1440 - 320))); /*18*/
+            font-size: 1.8rem;
             line-height: 1.5;
+            @include breakpoint(1344) {
+                font-size: calc(12px + 4.2 * ((100vw - 320px) / (1440 - 320))); //18
+            }
         }
         &__list {
-            font-size: calc(12px + 8.4 * ((100vw - 320px) / (1440 - 320))); /*24*/
+            font-size: 2.4rem;
             margin-top: 6rem;
+            @include breakpoint(1344) {
+                font-size: calc(12px + 8.4 * ((100vw - 320px) / (1440 - 320))); //24
+            }
             @include breakpoint(768) {
                 display: flex;
                 justify-content: space-around;
@@ -1411,15 +1551,25 @@ body {
         padding: 2.5rem 1.5rem 2.8rem;
     }
     &__title {
-        font-size: calc(22px + 5.6 * ((100vw - 320px) / (1440 - 320))); /*30*/
+        font-size: 3rem;
         font-family: $font-cormorant;
         margin-bottom: 3.3rem;
+        @include breakpoint(1344) {
+            font-size: calc(22px + 5.6 * ((100vw - 320px) / (1440 - 320))); //30
+        }
+        @include breakpoint(576) {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
     }
     &__label {
-        font-size: calc(10px + 1.4 * ((100vw - 320px) / (1440 - 320))); /*12*/
+        font-size: 1.2rem;
         margin-bottom: 1.2rem;
         display: block;
         margin-left: 0.6rem;
+        @include breakpoint(1344) {
+            font-size: calc(10px + 1.4 * ((100vw - 320px) / (1440 - 320))); //12
+        }
     }
     &__input {
         border: 1px solid rgba($green, .4);
@@ -1436,17 +1586,32 @@ body {
         &:invalid {
             border: #ff0000;
         }
+        @include breakpoint(576) {
+            padding: 1rem 2rem;
+            margin-bottom: 1.5rem;
+        }
     }
     &__check {
-        font-size: calc(10px + 1.4 * ((100vw - 320px) / (1440 - 320))); /*12*/
+        font-size: 1.2rem;
         color: rgba($green, .6);
         line-height: 1.5;
         max-width: 360px;
         margin-top: 1.6rem;
+        @include breakpoint(1344) {
+            font-size: calc(10px + 1.4 * ((100vw - 320px) / (1440 - 320))); //12
+        }
+        @include breakpoint(576) {
+            text-align: center;
+        }
     }
     &__link {
         margin-top: 1.3rem;
         padding: 2.1rem 4.9rem;
+        @include breakpoint(576) {
+            padding: 1.7rem 3.5rem;
+            display: block;
+            margin: 3.3rem auto 0;
+        }
     }
     &__docs {
         color: rgba($green, .6);
@@ -1471,21 +1636,27 @@ footer {
 }
 .footer {
     &__box {
+        font-size: 1.8rem;
         display: flex;
         justify-content: space-between;
-        font-size: calc(12px + 4.2 * ((100vw - 320px) / (1440 - 320))); /*18*/
         margin-bottom: 5.8rem;
+        @include breakpoint(1344) {
+            font-size: calc(12px + 4.2 * ((100vw - 320px) / (1440 - 320))); //18
+        }
         @include breakpoint(768) {
             flex-direction: column;
         }
     }
     &__text {
+        font-size: 1.6rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        font-size: calc(10px + 4.2 * ((100vw - 320px) / (1440 - 320))); /*16*/
         color: rgba($green, .6);
         letter-spacing: .8px;
+        @include breakpoint(1344) {
+            font-size: calc(10px + 4.2 * ((100vw - 320px) / (1440 - 320))); //16
+        }
         &:hover {
             color: rgba($green, .6);
         }
@@ -1495,11 +1666,17 @@ footer {
         }
     }
     &__author {
+        @include breakpoint(576) {
+            color: rgba($green, 1);
+        }
         & a {
             color: rgba($green, .6);
             font-weight: 500;
             transition: .2s;
             &:hover {
+                color: rgba($green, 1);
+            }
+            @include breakpoint(576) {
                 color: rgba($green, 1);
             }
         }
@@ -1569,10 +1746,13 @@ footer {
         }
     }
     &__email {
-        font-size: calc(12px + 4.2 * ((100vw - 320px) / (1440 - 320))); /*18*/
+        font-size: 1.8rem;
         color: $green;
         margin-bottom: 3rem;
         transition: .2s;
+        @include breakpoint(1344) {
+            font-size: calc(12px + 4.2 * ((100vw - 320px) / (1440 - 320))); //18
+        }
         &:hover {
             color: $orange;
         }
