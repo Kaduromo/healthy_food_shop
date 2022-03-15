@@ -344,7 +344,7 @@ body {
         }
     }
     &__cover {
-        flex-basis: 760px;
+        flex: 0 0 760px;
         height: 760px;
         border: 1px solid rgba(#27300f, .4);
         border-radius: 100%;
@@ -354,11 +354,11 @@ body {
         align-items: center;
         position: relative;
         @include breakpoint(1344) {
-            flex-basis: 650px;
+            flex: 0 0 650px;
             height: 650px;
         }
         @include breakpoint(1184) {
-            flex-basis: 580px;
+            flex: 0 0 580x;
             height: 580px;
         }
         @include breakpoint(960) {
