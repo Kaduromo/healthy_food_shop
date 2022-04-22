@@ -670,6 +670,7 @@ body {
         box-shadow: 0 1rem 1.1rem .17rem rgba(207, 92, 13, .2);
         @include breakpoint(1344) {
             font-size: calc(10px + 2.8 * ((100vw - 320px) / (1440 - 320))); //14
+            padding: 1.6rem 3rem;
         }
         @include breakpoint(576) {
             padding: 1.6rem 2rem;
@@ -985,16 +986,20 @@ body {
             width: 40px;
             height: 40px;
             @include breakpoint(1344) {
-                width: 38px;
-                height: 38px;
+                width: 36px;
+                height: 36px;
             }
         }
     }
     &__minus {
-        pointer-events: none;
+        // pointer-events: none;
         background-image: url(../images/catalog/minus-counter.svg);
         background-size: 20px 12px;
-        opacity: .4;
+        // opacity: .4;
+        &.unlock {
+            pointer-events: auto;
+            opacity: 1;
+        }
     }
     &__plus {
         background-image: url(../images/catalog/plus-counter.svg);
@@ -1277,7 +1282,8 @@ body {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 5%;
+            gap: 4.8%;
+            // gap: 5%;
         }
     }
     &__text {
