@@ -1,4 +1,4 @@
-# Healthy food - тренировочный сайт от учебного прокта Annblok.ru
+# Healthy food
 
 * [Демо сайта](https://kaduromo.github.io/Module02-Shop/dist/)
 
