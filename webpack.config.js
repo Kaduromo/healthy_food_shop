@@ -36,7 +36,6 @@ module.exports = ({ develop }) => ({
       {
         test: /\.(?:ico|png|jpg|jpeg|svg)$/i,
         type: "asset/inline",
-        // type: "asset/resource",
       },
       {
         test: /\.html$/i,

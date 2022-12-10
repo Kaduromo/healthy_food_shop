@@ -197,6 +197,7 @@ body {
     position: absolute;
     right: 0.6rem;
     top: 0.4rem;
+    pointer-events: none;
     @include breakpoint(1184) {
       color: $green;
     }
@@ -745,7 +746,6 @@ body {
     padding-bottom: 5rem;
   }
   @include breakpoint(576) {
-    max-width: 230px;
     min-width: inherit;
   }
 }
@@ -767,19 +767,18 @@ body {
       text-align: center;
     }
     &_white {
-      height: 510px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       background-size: contain;
       padding: 3.5rem 3.7rem;
       overflow: hidden;
+      height: calc(250px + 200 * ((100vw - 320px) / (1440 - 320))); //510
       @include breakpoint(1184) {
-        height: 400px;
+        padding: 2rem 2.5rem;
       }
-      @include breakpoint(576) {
-        height: 260px;
-        padding: 2.2rem 1.7rem;
+      @include breakpoint(768) {
+        height: calc(250px + 400 * ((100vw - 320px) / (1440 - 320))); //510
       }
       &::after {
         content: "";
@@ -812,7 +811,7 @@ body {
       box-shadow: 0 0 0 2px rgba($green, 0.4) inset;
       .swiper-slide__hover {
         opacity: 1;
-        height: 233px;
+        height: 250px;
         @include breakpoint(576) {
           height: auto;
         }
@@ -879,9 +878,9 @@ body {
     &__text {
       color: rgba($green, 0.7);
       line-height: 1.5;
-      margin-top: 2.5rem;
-      margin-bottom: 3.4rem;
-      max-width: 263px;
+      margin-top: 2.2rem;
+      margin-bottom: 3.2rem;
+      max-width: 270px;
       @include breakpoint(576) {
         display: none;
       }
@@ -1884,7 +1883,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 45px;
+    margin-bottom: calc(15px + 12 * ((100vw - 320px) / (1440 - 320)));
   }
   // .cart__title
   &__title {
@@ -1901,37 +1900,76 @@ footer {
   }
   // .cart__body
   &__body {
-    margin-bottom: 22px;
+    margin-bottom: calc(15px + 7 * ((100vw - 320px) / (1440 - 320)));
   }
   // .cart__product
   &__product {
   }
   // .cart__footer
   &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    @include breakpoint(576) {
+      flex-direction: column-reverse;
+    }
   }
   // .cart__total
   &__total {
+    margin-bottom: 1.4rem;
+    text-align: right;
+    font-size: 1.6rem;
+    @include breakpoint(576) {
+      text-align: center;
+    }
   }
   // .cart__btns
   &__btns {
   }
   // .cart__btn
   &__btn {
+    cursor: pointer;
+    font-size: 1.4rem;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 1rem;
+    outline: none;
+    background-color: $orange;
+    border-radius: 2rem;
+    transition: 0.2s;
+    @include breakpoint(1344) {
+      font-size: calc(12px + 2.8 * ((100vw - 320px) / (1440 - 320))); //16
+    }
     // .cart__btn_primary
     &_primary {
+    }
+    &_clear {
     }
   }
 }
 .product {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 8px;
-  border: 1px solid #d9d9d9;
-  margin-bottom: 15px;
-  padding: 8px;
+  border: 2px solid #d9d9d9;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
   gap: 10px;
+  position: relative;
+  @include breakpoint(576) {
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__close {
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 900;
+    position: absolute;
+    top: -2px;
+    right: 8px;
+  }
   // .product__empty
   &__empty {
     display: block;
@@ -1952,10 +1990,12 @@ footer {
   // .product__payload
   &__payload {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 15px;
+    @include breakpoint(576) {
+      flex-direction: column;
+    }
   }
   // .product__image
   &__image {
@@ -1963,6 +2003,9 @@ footer {
     max-width: 130px;
   }
   &__title {
+    @include breakpoint(576) {
+      text-align: center;
+    }
   }
   // .product__name
   &__name {
@@ -1976,13 +2019,19 @@ footer {
     font-weight: 700;
     font-size: 20px;
     line-height: 140%;
+    @include breakpoint(576) {
+      margin: 0 auto;
+      text-align: center;
+    }
   }
   &__info {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 10px;
+    @include breakpoint(576) {
+      flex-direction: column;
+    }
   }
   // .product__final-price
   &__final-price {
@@ -1994,25 +2043,5 @@ footer {
   &__counter {
     display: flex;
     align-items: center;
-  }
-}
-.counter {
-  // .counter__btn
-  &__btn {
-    // .counter__btn_min
-    &_min {
-    }
-  }
-  // .counter__minus
-  &__minus {
-  }
-  // .counter__input
-  &__input {
-    // .counter__input_min
-    &_min {
-    }
-  }
-  // .counter__plus
-  &__plus {
   }
 }

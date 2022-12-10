@@ -35,7 +35,7 @@
   function checkMaxValue(maxValue, newValue) {
     let value
     if (newValue >= maxValue) value = maxValue
-    else if (newValue < 0) value = 0
+    else if (newValue < 1) value = 1
     else value = newValue
     return value
   }
