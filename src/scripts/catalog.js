@@ -1,15 +1,18 @@
-import catalog, { news } from "../api/fake_api"
+import httpService from "./http.servece"
 
-const catalogBlock = document.querySelector(".catalog-grid")
-const newsBlock = document.querySelector(".trendsSwiper .swiper-wrapper")
+const catalog = {
+  get: async () => {
+    const { data } = await httpService.get("catalog.json")
 
-if (catalog.length > 0) {
-  catalogBlock.insertAdjacentHTML(
-    "afterbegin",
-    catalog
-      .map((item) => {
-        const { type, img, title, description, price, count } = item
-        return `
+    const catalogBlock = document.querySelector(".catalog-grid")
+
+    if (data.length > 0) {
+      catalogBlock.insertAdjacentHTML(
+        "afterbegin",
+        data
+          .map((item) => {
+            const { type, img, title, description, price, count } = item
+            return `
           <div data-cart="cart" class="catalog-grid__item">
             <div class="catalog-grid__cover">
               <img
@@ -41,46 +44,57 @@ if (catalog.length > 0) {
             </div>
           </div>
 		`
-      })
-      .join("\n")
-  )
+          })
+          .join("\n")
+      )
 
-  const catalogLength = catalogBlock.children.length
+      const catalogLength = catalogBlock.children.length
 
-  if (catalogLength > 8) {
-    catalogBlock.insertAdjacentHTML(
-      "afterend",
-      `
+      if (catalogLength > 8) {
+        catalogBlock.insertAdjacentHTML(
+          "afterend",
+          `
     <button 
         class="catalog__btn" >
         Загрузить ещё
     </button>
     `
-    )
+        )
 
-    for (let i = 8; i < catalogLength; i++) {
-      catalogBlock.children[i].style.display = "none"
-    }
-  }
-  const catalogBtn = document.querySelector(".catalog__btn")
-
-  catalogBtn.addEventListener("click", (e) => {
-    if (e.target === catalogBtn) {
-      for (let i = 8; i < catalogLength; i++) {
-        catalogBlock.children[i].style.display = "flex"
+        for (let i = 8; i < catalogLength; i++) {
+          catalogBlock.children[i].style.display = "none"
+        }
       }
-      catalogBtn.style.display = "none"
-    }
-  })
-}
+      const catalogBtn = document.querySelector(".catalog__btn")
 
-if (news.length > 0) {
-  newsBlock.insertAdjacentHTML(
-    "afterbegin",
-    news
-      .map((item) => {
-        const { type, img, title, description, price, count } = item
-        return `
+      catalogBtn.addEventListener("click", (e) => {
+        if (e.target === catalogBtn) {
+          for (let i = 8; i < catalogLength; i++) {
+            catalogBlock.children[i].style.display = "flex"
+          }
+          catalogBtn.style.display = "none"
+        }
+      })
+    }
+  },
+}
+catalog.get()
+
+const news = {
+  get: async () => {
+    const { data } = await httpService.get("news.json")
+
+    console.log(data)
+
+    const newsBlock = document.querySelector(".trendsSwiper .swiper-wrapper")
+
+    if (data.length > 0) {
+      newsBlock.insertAdjacentHTML(
+        "afterbegin",
+        data
+          .map((item) => {
+            const { type, img, title, description, price, count } = item
+            return `
               <div data-cart="cart" class="swiper-slide">
                 <div class="swiper-slide__cover">
                   <img
@@ -108,7 +122,10 @@ if (news.length > 0) {
                 </div>
               </div>
 		`
-      })
-      .join("\n")
-  )
+          })
+          .join("\n")
+      )
+    }
+  },
 }
+news.get()
