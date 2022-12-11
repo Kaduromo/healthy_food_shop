@@ -66,6 +66,9 @@ body {
   font-family: $font-jost;
   color: $green;
 }
+button {
+  cursor: pointer;
+}
 .container {
   max-width: 1440px;
   margin: 0 auto;
@@ -99,7 +102,7 @@ body {
       right: -100%;
       width: 100%;
       height: 100%;
-      background-color: rgba($color: #000000, $alpha: 0.8);
+      background-color: rgba(#000, 0.4);
       padding: 22% 4%;
       transition: right 0.3s;
       overflow: auto;
@@ -120,7 +123,9 @@ body {
   }
   &__nav {
     display: flex;
-    gap: 4.7rem;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem 4.7rem;
     @include breakpoint(1184) {
       gap: 2.7rem;
     }
@@ -153,7 +158,7 @@ body {
     font-weight: 500;
     color: $green;
     letter-spacing: 0.13rem;
-    flex-basis: 160px;
+    flex: 0 0 160px;
     transition: 0.2s;
     &:hover {
       color: $orange;
@@ -294,7 +299,7 @@ body {
   background-image: url(../images/logo.svg);
   background-repeat: no-repeat;
   background-size: contain;
-  width: 12rem;
+  flex: 1 0 12rem;
   height: 3.2rem;
 }
 .logo_footer {
@@ -2043,5 +2048,95 @@ footer {
   &__counter {
     display: flex;
     align-items: center;
+  }
+}
+
+.added {
+  background: rgb(252, 243, 169);
+  padding: 20px;
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  // .added__form
+  &__form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 2px solid #000;
+    border-radius: 2rem;
+    padding: 20px;
+    padding-top: 30px;
+  }
+  &__row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    &:not(:last-child) {
+      margin-bottom: 1.2rem;
+    }
+    & input {
+      width: 100%;
+      padding: 8px;
+      border-radius: 2rem;
+      border: 1px solid #000;
+    }
+    & label {
+      margin-bottom: 5px;
+      width: 100%;
+    }
+  }
+  // .added__category
+  &__category {
+  }
+  // .added__type
+  &__type {
+  }
+  // .added__link
+  &__link {
+  }
+  // .added__title
+  &__title {
+  }
+  // .added__desc
+  &__desc {
+  }
+  // .added__price
+  &__price {
+  }
+  // .added__close
+  &__close {
+    font-size: 20px;
+    font-weight: 900;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+  }
+  // .added__btn
+  &__btn {
+    cursor: pointer;
+    border-radius: 2rem;
+    width: 100%;
+    color: #fff;
+    text-transform: uppercase;
+    background: $orange;
+    padding: 8px;
+    transition: all 0.2s linear;
+    animation: ShadowIcon 4s linear infinite;
+    @media (any-hover: hover) {
+      &:hover {
+        background: $orange_hover;
+      }
+    }
   }
 }

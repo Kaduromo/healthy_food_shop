@@ -6,6 +6,21 @@ import "./cart"
 
 import "../styles/main.scss"
 
+document.addEventListener("click", (e) => {
+  if (e.target === document.querySelector("button.header__link")) {
+    location.hash = "#admin"
+    document.querySelector(".added").style.display = "flex"
+  }
+  if (e.target === document.querySelector(".added__close")) {
+    location.hash = ""
+    document.querySelector(".added").style.display = "none"
+    location.reload(true)
+  }
+})
+
+if (location.hash === "#admin") {
+  document.querySelector(".added").style.display = "flex"
+}
 //========================================================================================================================================================
 //	Определяем OS
 
@@ -102,3 +117,30 @@ function onMenuLinkClick(e) {
     e.preventDefault()
   }
 }
+//========================================================================================================================================================
+
+const url = "https://fakestoreapi.com/products/"
+
+// const response = fetch("https://fakestoreapi.com/products")
+//   .then((res) => res.json())
+//   .then((json) => json)
+
+// if (response.ok) { // если HTTP-статус в диапазоне 200-299
+//   // получаем тело ответа (см. про этот метод ниже)
+//   let json = await response.json();
+// } else {
+//   alert("Ошибка HTTP: " + response.status);
+// }
+
+// console.log(response)
+
+// let response = fetch(url)
+
+// if (response.ok) {
+//   // если HTTP-статус в диапазоне 200-299
+//   // получаем тело ответа (см. про этот метод ниже)
+//   let json = response.json()
+//   console.log(json)
+// } else {
+//   console.log("Ошибка HTTP: " + response.status)
+// }

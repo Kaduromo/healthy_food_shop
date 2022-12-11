@@ -66,6 +66,9 @@
                   >Контакты</a
                 >
               </li>
+              <li class="header_item">
+                <button class="header__link">Добавить товар</button>
+              </li>
             </ul>
           </nav>
           <a href="tel:+79453425555" class="header__tel">+7 945 342 55 55</a>
@@ -427,6 +430,75 @@
           <button class="cart__btn cart__btn_primary">Оформить заказ</button>
         </div>
       </div>
+    </div>
+
+    <div id="admin" class="added">
+      <form class="added__form">
+        <button class="added__close">x</button>
+        <div class="added__row">
+          <label for="add_category">Введите url картинки</label>
+          <input
+            id="add_category"
+            type="text"
+            class="added__category"
+            placeholder="новинки"
+            required
+          />
+        </div>
+        <div class="added__row">
+          <label for="add_type"
+            >Укажите еденицу измерения товара (шт, упак, кг)</label
+          >
+          <input
+            id="add_type"
+            type="text"
+            class="added__type"
+            value="шт"
+            required
+          />
+        </div>
+        <div class="added__row">
+          <label for="add_link">Введите url картинки</label>
+          <input
+            id="add_link"
+            type="text"
+            class="added__link"
+            placeholder="https://avatars.mds.yandex.net/i?id=da97e4d27a73e2ab4d74f6764a80b9ff709874ba-2386815-images-thumbs&n=13"
+            required
+          />
+        </div>
+        <div class="added__row">
+          <label for="add_title">Введите название товара</label>
+          <input
+            id="add_title"
+            type="text"
+            class="added__title"
+            placeholder="Введите название товара"
+            required
+          />
+        </div>
+        <div class="added__row">
+          <label for="add_desc">Введите описание товара</label>
+          <input
+            id="add_desc"
+            type="text"
+            class="added__desc"
+            placeholder="Описание"
+            required
+          />
+        </div>
+        <div class="added__row">
+          <label for="add_price">Введите цену товара</label>
+          <input
+            id="add_price"
+            type="text"
+            class="added__price"
+            placeholder="Введите цену товара"
+            required
+          />
+        </div>
+        <button type="submit" class="added__btn">Добавить товар</button>
+      </form>
     </div>
   </body>
 </html>
