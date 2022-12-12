@@ -1,18 +1,18 @@
 import httpService from "./http.servece"
 
+function dataToArr(obj) {
+  const result = []
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      result.push(obj[key])
+    }
+  }
+  return result
+}
+
 const catalog = {
   get: async () => {
     const { data } = await httpService.get("catalog.json")
-
-    const dataToArr = (obj) => {
-      const result = []
-      for (let key in obj) {
-        if (obj.hasOwnProperty(key)) {
-          result.push(obj[key])
-        }
-      }
-      return result
-    }
 
     const arr = Array.isArray(data) ? data : dataToArr(data)
 
@@ -95,16 +95,6 @@ const news = {
   get: async () => {
     const { data } = await httpService.get("news.json")
 
-    const dataToArr = (obj) => {
-      const result = []
-      for (let key in obj) {
-        if (obj.hasOwnProperty(key)) {
-          result.push(obj[key])
-        }
-      }
-      return result
-    }
-
     const arr = Array.isArray(data) ? data : dataToArr(data)
 
     if (arr.length > 0) {
@@ -159,35 +149,14 @@ const cat = {
   },
   put: async (arr, path) => {
     const { data } = await httpService.get("news.json")
-    data.push(...arr)
-    for (const item of arr) {
+    const newArr = []
+    newArr.push(...dataToArr(data), ...arr)
+
+    for (const item of newArr) {
       await httpService.put(`${path}` + item._id + ".json", item)
     }
   },
 }
-
-const test = [
-  { _id: "67rdca3eeb7f6fgeed471818", name: "Доктор" },
-  { _id: "67rdca3eeb7f6fgeed471820", name: "Официант" },
-  { _id: "67rdca3eeb7f6fgeed471814", name: "Физик" },
-  { _id: "67rdca3eeb7f6fgeed471822", name: "Инженер" },
-  { _id: "67rdca3eeb7f6fgeed471824", name: "Актер" },
-  { _id: "67rdca3eeb7f6fgeed471829", name: "Повар" },
-  { _id: "154515", name: "asdasd" },
-  { _id: "58461651", name: "asdasdasdsa" },
-]
-
-// async function rendaringData(arr, path) {
-//   const { data } = await httpService.get("news.json")
-//   data.push(...arr)
-//   console.log(data)
-//   for (const item of data) {
-//     await httpService.put(`${path}` + item._id + ".json", item)
-//   }
-// }
-
-// const d = async () => await cat.put(test, "test/")
-// d()
 
 const addBlock = document.querySelector(".added")
 const addCategory = addBlock.querySelector(".added__category")
