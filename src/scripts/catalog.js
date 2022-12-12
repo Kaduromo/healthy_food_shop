@@ -148,7 +148,7 @@ const cat = {
     return data
   },
   put: async (arr, path) => {
-    const { data } = await httpService.get("news.json")
+    const { data } = await httpService.get(`${arr[0].category}.json`)
     const newArr = []
     newArr.push(...dataToArr(data), ...arr)
 
@@ -170,6 +170,13 @@ const addBtn = addBlock.querySelector(".added__btn")
 addBtn.addEventListener("click", (e) => {
   // e.preventDefault()
 
+  const category =
+    addCategory.value.toLowerCase() === "новинки"
+      ? "news/"
+      : addCategory.value.toLowerCase() === "каталог"
+      ? "catalog/"
+      : "test/"
+
   const arr = [
     {
       _id: Math.floor(
@@ -183,6 +190,7 @@ addBtn.addEventListener("click", (e) => {
       description: addDesc.value,
       price: addPrice.value,
       count: 1,
+      category,
     },
   ]
   console.log(arr)
@@ -191,11 +199,7 @@ addBtn.addEventListener("click", (e) => {
     await cat.put(
       arr,
       // "test/"
-      addCategory.value.toLowerCase() === "новинки"
-        ? "news/"
-        : addCategory.value.toLowerCase() === "каталог"
-        ? "catalog/"
-        : "test/"
+      category
     )
   d()
 
